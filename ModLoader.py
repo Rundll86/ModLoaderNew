@@ -1,4 +1,4 @@
-print("ModLoader New v1.2.6 (Hotfix 2)")
+print("ModLoader New v1.3.0 (!-Alpha)")
 print("编写与开发 By <Rundll86> [ https://rundll86.github.io/ ]")
 print("项目仓库 With <Github> [ https://github.com/Rundll86/ModLoaderNew/ ]")
 print("！此程序是免费且开源的，如果你是付费购买的，那么你已经被骗了！")

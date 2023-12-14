@@ -54,6 +54,7 @@ print("正在加载配置文件...")
 if not os.path.exists("game.txt"):
     print("检测到配置文件不存在，正在生成...")
     print("正在自动查找游戏...")
+    stime = time.time()
     disklist = "DEFGHIJKLMNOPQRSTUVWXYZ"
     ok = False
     gamepath = ""
@@ -62,18 +63,37 @@ if not os.path.exists("game.txt"):
             for root, dir, file in os.walk(f"{i}:\\"):
                 if "YuanShen.exe" in file or "GenshinImpact.exe" in file:
                     if "YuanShen.exe" in file:
-                        gametype="YuanShen"
+                        gametype = "YuanShen"
                         gamepath = os.path.join(root, "YuanShen.exe")
                     if "GenshinImpact.exe" in file:
-                        gametype="GenshinImpact"
+                        gametype = "GenshinImpact"
                         gamepath = os.path.join(root, "GenshinImpact.exe")
                     ok = True
                     print(f"已找到「{gametype}.exe」，其在 [ {gamepath} ] 。")
+                    print(f"用时：{round(time.time()-stime,2)}秒。")
                     break
             if ok:
                 break
         else:
             continue
+    if not ok:
+        Cdirlist = os.listdir("C:\\")
+        Cdirlist.remove("Windows")
+        for i in Cdirlist:
+            for root, dir, file in os.walk("C:\\" + i):
+                if "YuanShen.exe" in file or "GenshinImpact.exe" in file:
+                    if "YuanShen.exe" in file:
+                        gametype = "YuanShen"
+                        gamepath = os.path.join(root, "YuanShen.exe")
+                    if "GenshinImpact.exe" in file:
+                        gametype = "GenshinImpact"
+                        gamepath = os.path.join(root, "GenshinImpact.exe")
+                    ok = True
+                    print(f"已找到「{gametype}.exe」，其在 [ {gamepath} ] 。")
+                    print(f"用时：{round(time.time()-stime,2)}秒。")
+                    break
+            if ok:
+                break
     if ok:
         print("正在写入配置文件...")
         config = open("game.txt", "w", encoding="utf8")

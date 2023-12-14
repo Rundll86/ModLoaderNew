@@ -54,6 +54,7 @@ print("正在加载配置文件...")
 if not os.path.exists("game.txt"):
     print("检测到配置文件不存在，正在生成...")
     print("正在自动查找游戏...")
+    print("这个步骤「可能」需要很长时间，请稍等。")
     stime = time.time()
     disklist = "DEFGHIJKLMNOPQRSTUVWXYZ"
     ok = False
@@ -112,9 +113,10 @@ dsfpath = "3dmigoto\\ShaderFixes"
 cg = open(tconfigpath, encoding="utf8")
 data = cg.read().format(GamePath=config)
 open(dconfigpath, "w", encoding="utf8").write(data)
-print("自动安装Mod...")
+print("正在自动安装Mod...",end="")
 modlist = os.listdir("autoInstall")
 if len(modlist) > 0:
+    print("")
     stime = time.time()
     for i in range(len(modlist)):
         modlist[i] = os.path.join("autoInstall", modlist[i])
@@ -122,12 +124,12 @@ if len(modlist) > 0:
     finish = 0
     for i in modlist:
         if os.path.isdir(i):
-            print(f"   - 跳过安装「{i}」，其不是有效的Mod文件。")
+            print(f"   - 跳过安装「{os.path.basename(i)}」，其不是有效的Mod文件。")
             continue
         try:
             ZipFile(i)
         except:
-            print(f"   - 跳过安装「{i}」，其不是有效的Mod文件。")
+            print(f"   - 跳过安装「{os.path.basename(i)}」，其不是有效的Mod文件。")
             continue
         waittime += 1
         print(f" - 开始安装「{i}」。")
@@ -135,14 +137,16 @@ if len(modlist) > 0:
     while waittime != finish:
         pass
     print(f"用时：{round(time.time()-stime,2)}秒。")
-print("拷贝Mod...")
+else:
+    print("好吧，并没有。")
+print("正在加载Mod...")
 os.system(f"rmdir /s /q {dmodspath}")
 shutil.copytree("mods", dmodspath)
-print("运行Mod修复工具...")
+print("正在运行Mod修复工具...")
 RunAsPowerShell(f"copy dontDeleteMe\\assets\\Fixing.exe {dmodspath}")
 os.system("start " + os.path.join(dmodspath, "Fixing.exe"))
 RunAsPowerShell(f"del /s /q {os.path.join(dmodspath,'Fixing.exe')}")
-print("拷贝ShaderFix...")
+print("正在拷贝ShaderFix...")
 RunAsPowerShell(f"rmdir /s /q {dsfpath}")
 RunAsPowerShell(f"mkdir {dsfpath}")
 flist = os.listdir("dontDeleteMe")
@@ -152,7 +156,7 @@ flist = os.listdir("shaderFix")
 for i in flist:
     RunAsPowerShell(f"copy shaderFix\\{i} {dsfpath}")
 RunAsPowerShell(f"rmdir /s /q {os.path.join(dsfpath,'assets')}")
-print("启动Mod加载器...请按下任意键继续。")
+print("准备拉起Mod加载器...请按下任意键继续。")
 msvcrt.getch()
 os.chdir("3dmigoto")
 os.startfile("3DMigoto Loader.exe")
@@ -162,7 +166,7 @@ print("正在启动你的游戏...")
 try:
     os.startfile(config)
 except:
-    print("启动失败，可能是游戏文件根本不存在，请检查game.txt中的路径是否有效。")
+    print("启动失败，可能是游戏文件不存在或已经损坏，请检查game.txt中的路径是否有效。")
 else:
     print("成功启动游戏，游戏窗口稍后将会出现。")
 print("按下任意键退出。")

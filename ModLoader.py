@@ -5,7 +5,7 @@ print("！此程序是免费且开源的，如果你是付费购买的，那么�
 print("")
 print("正在初始化...")
 from zipfile import *
-import os, shutil, msvcrt, subprocess, threading, time, sys
+import os, shutil, msvcrt, subprocess, threading, time, sys, tempfile
 
 
 def RunAsPowerShell(Cmd):
@@ -107,13 +107,15 @@ if not os.path.exists("game.txt"):
         sys.exit()
 config = open("game.txt", "r", encoding="utf8").read()
 tconfigpath = "dontDeleteMe\\assets\\d3dx.ini"
-dconfigpath = "3dmigoto\\d3dx.ini"
-dmodspath = "3dmigoto\\Mods"
-dsfpath = "3dmigoto\\ShaderFixes"
+temppath = os.path.join(tempfile.gettempdir(), "ModLoaderNew")
+dconfigpath = os.path.join(temppath, "3dmigoto\\d3dx.ini")
+dmodspath = os.path.join(temppath, "3dmigoto\\Mods")
+dsfpath = os.path.join(temppath, "3dmigoto\\ShaderFixes")
 cg = open(tconfigpath, encoding="utf8")
 data = cg.read().format(GamePath=config)
+ZipFile("dontDeleteMe/assets/core.ddm").extractall(temppath)
 open(dconfigpath, "w", encoding="utf8").write(data)
-print("正在自动安装Mod...",end="")
+print("正在自动安装Mod...", end="")
 modlist = os.listdir("autoInstall")
 if len(modlist) > 0:
     print("")

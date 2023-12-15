@@ -1,0 +1,6 @@
+dist
+dist\*
+autoInstall\*
+mods\*
+shaderFix\*
+pushing.bat

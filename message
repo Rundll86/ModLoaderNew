@@ -1,0 +1,3 @@
+取出所有名字结尾是“Mod”的目录，扔进target\a
+取出名字叫“ShaderFixes”的目录其中的所有文件，扔进target\b
+取出test目录本身带有的所有文件，直接扔进target

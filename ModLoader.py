@@ -12,38 +12,40 @@ def RunAsPowerShell(Cmd):
     subprocess.run(Cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
 
+def popPath(path: str):
+    return "\\".join(path.split("\\")[1:])
+
+
 def aData(i):
     path = i + "___EXTRACT"
     ZipFile(i).extractall(path)
     RunAsPowerShell(f'del /s /q "{i}"')
-    flist = os.listdir(path)
-    for j in flist:
-        j = os.path.join(path, j)
-        if os.path.basename(j) == "Mods" and os.path.isdir(j):
-            flist2 = os.listdir(j)
-            for k in flist2:
-                if os.path.isdir(os.path.join(j, k)):
-                    RunAsPowerShell(
-                        f'xcopy /e /i /h /y "{os.path.join(j,k)}" "mods\\{k}"'
-                    )
-                else:
-                    RunAsPowerShell(f'copy "{os.path.join(j,k)}" "mods\\{k}"')
-        elif os.path.basename(j) == "ShaderFixes" and os.path.isdir(j):
-            flist2 = os.listdir(j)
-            for k in flist2:
-                if os.path.isdir(os.path.join(j, k)):
-                    RunAsPowerShell(
-                        f'xcopy /e /i /h /y "{os.path.join(j,k)}" "shaderFix"'
-                    )
-                else:
-                    RunAsPowerShell(f'copy "{os.path.join(j,k)}" "shaderFix"')
-        else:
-            if os.path.isfile(j):
-                RunAsPowerShell(f'copy "{j}" mods')
-            elif os.path.isdir(j):
-                RunAsPowerShell(
-                    f'xcopy /e /i /h /y "{j}" "{os.path.join("mods",os.path.basename(j))}"'
-                )
+    src_dir = path
+    suffix = "Mod"
+    dest_dir = "mods"
+    for root, dirs, files in os.walk(src_dir):
+        for dir in dirs:
+            dir: str
+            if (suffix in dir) and ("Mods" not in dir):
+                src_path = os.path.join(root, dir)
+                dest_path = os.path.join(dest_dir, dir)
+                shutil.copytree(src_path, dest_path)
+    directory_name = "ShaderFixes"
+    directory_path = os.path.join(src_dir, directory_name)
+    dest_path = os.path.join(dest_dir, "..\\shaderFix")
+    if not os.path.exists(dest_path):
+        os.makedirs(dest_path)
+    for root, dirs, files in os.walk(directory_path):
+        for file in files:
+            src_file_path = os.path.join(root, file)
+            dest_file_path = os.path.join(dest_path, file)
+            shutil.copy2(src_file_path, dest_file_path)
+    test_directory_path = src_dir
+    for file in os.listdir(test_directory_path):
+        src_file_path = os.path.join(test_directory_path, file)
+        dest_file_path = os.path.join(dest_dir, file)
+        if os.path.isfile(src_file_path):
+            shutil.copy2(src_file_path, dest_file_path)
     RunAsPowerShell(f'rmdir /s /q "{path}"')
     print(f" - 安装成功「{i}」。")
     global finish
@@ -113,6 +115,7 @@ dmodspath = os.path.join(temppath, "3dmigoto\\Mods")
 dsfpath = os.path.join(temppath, "3dmigoto\\ShaderFixes")
 cg = open(tconfigpath, encoding="utf8")
 data = cg.read().format(GamePath=config)
+print("正在加载核心脚本...")
 ZipFile("dontDeleteMe/assets/core.ddm").extractall(temppath)
 open(dconfigpath, "w", encoding="utf8").write(data)
 print("正在自动安装Mod...", end="")
@@ -160,15 +163,16 @@ for i in flist:
 RunAsPowerShell(f"rmdir /s /q {os.path.join(dsfpath,'assets')}")
 print("准备拉起Mod加载器...请按下任意键继续。")
 msvcrt.getch()
-os.chdir("3dmigoto")
+os.chdir(os.path.join(temppath, "3dmigoto"))
 os.startfile("3DMigoto Loader.exe")
 print("请检查新出现的窗口，如果出现了“Now run the game.”则模组加载器已经启动成功。\n请按下任意键继续。")
 msvcrt.getch()
 print("正在启动你的游戏...")
 try:
     os.startfile(config)
-except:
+except Exception as Error:
     print("启动失败，可能是游戏文件不存在或已经损坏，请检查game.txt中的路径是否有效。")
+    print(f"错误：{Error}")
 else:
     print("成功启动游戏，游戏窗口稍后将会出现。")
 print("按下任意键退出。")

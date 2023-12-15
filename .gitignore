@@ -1,5 +1,7 @@
 dist
-dist\*
-autoInstall\*
-mods\*
-shaderFix\*
+test
+target
+autoInstall
+mods
+shaderFix
+test.py

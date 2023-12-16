@@ -9,3 +9,10 @@ There's no need to introduce this shitty code, right ()
 Ce code comme de la merde n'a pas besoin d'être introduit ()
 
 Es gibt keinen Grund, diesen beschissenen Code einzuführen, richtig ()
+
+```batch
+git clone https://github.com/Rundll86/ModLoaderNew.git
+cd ModLoaderNew
+start init.bat
+python ModLoader.py
+```

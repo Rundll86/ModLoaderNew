@@ -65,7 +65,7 @@ def checkGame(path):
             global stime
             print(f"用时：{round(time.time()-stime,2)}秒。")
             print("这是你的游戏吗？")
-            rich.print("[yellow]使用箭头键切换，回车键确认[/yellow]")
+            rich.print("[yellow]↓ 使用箭头键切换，回车键确认 ↓[/yellow]")
             selector = conkits.Choice(options=["* 是   *", "* 不是 *"])
             selector.set_keys({"up": "H", "down": "P", "confirm": "\r"})
             selector.checked_ansi_code = (
@@ -93,7 +93,7 @@ print("正在加载配置文件...")
 if not os.path.exists("game.txt"):
     print("检测到配置文件不存在，正在生成...")
     print("正在自动查找游戏...")
-    print("这个步骤「可能」需要很长时间，请稍等。")
+    print("这个步骤「可能」需要很长时间，请耐心等待。")
     stime = time.time()
     disklist = "DEFGHIJKLMNOPQRSTUVWXYZ"
     ok = False
@@ -177,13 +177,12 @@ RunAsPowerShell(f"del /s /q {os.path.join(dmodspath,'Fixing.exe')}")
 print("正在拷贝ShaderFix...")
 RunAsPowerShell(f"rmdir /s /q {dsfpath}")
 RunAsPowerShell(f"mkdir {dsfpath}")
-flist = os.listdir("dontDeleteMe")
-for i in flist:
+ddmlist = os.listdir("dontDeleteMe")
+ddmlist.remove("assets")
+for i in ddmlist:
     RunAsPowerShell(f"copy dontDeleteMe\\{i} {dsfpath}")
-flist = os.listdir("shaderFix")
-for i in flist:
-    RunAsPowerShell(f"copy shaderFix\\{i} {dsfpath}")
-RunAsPowerShell(f"rmdir /s /q {os.path.join(dsfpath,'assets')}")
+for i in os.listdir("shaderFix"):
+    RunAsPowerShell(f"copy dontDeleteMe\\{i} {dsfpath}")
 print("准备拉起Mod加载器...请按下任意键继续。")
 msvcrt.getch()
 os.chdir(os.path.join(temppath, "3dmigoto"))

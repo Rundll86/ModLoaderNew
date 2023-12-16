@@ -1,15 +1,19 @@
-print("ModLoaderNew v1.3.2")
+import os
+
+
+def clearConsole():
+    os.system("cls")
+
+
+clearConsole()
+print("ModLoaderNew v1.3.2-Hotfix 02")
 print("编写与开发 By <Rundll86> [ https://rundll86.github.io/ ]")
 print("项目仓库 With <Github> [ https://github.com/Rundll86/ModLoaderNew/ ]")
 print("！此程序是免费且开源的，如果你是付费购买的，那么你已经被骗了！")
 print("")
 print("正在初始化...")
 from zipfile import *
-import os, shutil, msvcrt, subprocess, threading, time, sys, tempfile, conkits, json
-
-
-def clearConsole():
-    os.system("cls")
+import shutil, msvcrt, subprocess, threading, time, sys, tempfile, conkits, json
 
 
 def RunAsPowerShell(Cmd):
@@ -179,7 +183,17 @@ def launchSetting():
         launchSetting()
 
     def setGame():
-        pass
+        global gamepath
+        gamepathbackup = gamepath
+        gamepath = findGame()
+        if not ok:
+            gamepath = gamepathbackup
+            print("没有在你的电脑中找到YuanShen.exe或GenshinImpact.exe，请确认你的电脑中已经安装了《原神》！")
+            print("按下任意键继续。")
+            msvcrt.getch()
+        else:
+            open("game.txt", "w", encoding="utf8").write(gamepath)
+        launchSetting()
 
     clearConsole()
     print("\n< ModLoaderNew-设置 >")
@@ -199,11 +213,10 @@ def launchSetting():
     setting.run()
 
 
-print("正在加载配置文件...")
-if not os.path.exists("game.txt"):
-    print("检测到配置文件不存在，正在生成...")
-    print("正在自动查找游戏...")
+def findGame():
+    print("正在查找游戏路径...")
     print("这个步骤「可能」需要很长时间，请耐心等待。")
+    global stime, disklist, ok, gamepath
     stime = time.time()
     disklist = "DEFGHIJKLMNOPQRSTUVWXYZ"
     ok = False
@@ -230,6 +243,16 @@ if not os.path.exists("game.txt"):
                 ok = True
                 gamepath = result
                 break
+    if ok:
+        return gamepath
+    else:
+        return ""
+
+
+print("正在加载配置文件...")
+if not os.path.exists("game.txt"):
+    print("检测到配置文件不存在，正在生成...")
+    gamepath = findGame()
     if ok:
         print("正在写入配置文件...")
         config = open("game.txt", "w", encoding="utf8")

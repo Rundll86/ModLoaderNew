@@ -1,11 +1,15 @@
-print("ModLoaderNew v1.3.1")
+print("ModLoaderNew v1.3.2")
 print("编写与开发 By <Rundll86> [ https://rundll86.github.io/ ]")
 print("项目仓库 With <Github> [ https://github.com/Rundll86/ModLoaderNew/ ]")
 print("！此程序是免费且开源的，如果你是付费购买的，那么你已经被骗了！")
 print("")
 print("正在初始化...")
 from zipfile import *
-import os, shutil, msvcrt, subprocess, threading, time, sys, tempfile, conkits
+import os, shutil, msvcrt, subprocess, threading, time, sys, tempfile, conkits, json
+
+
+def clearConsole():
+    os.system("cls")
 
 
 def RunAsPowerShell(Cmd):
@@ -120,14 +124,14 @@ def autoInstall():
 
 def loadmod():
     print("正在加载模组...")
-    os.system(f"rmdir /s /q {dmodspath}")
+    RunAsPowerShell(f"rmdir /s /q {dmodspath}")
     shutil.copytree("mods", dmodspath)
 
 
 def fixmod():
     print("正在运行模组修复工具...")
     RunAsPowerShell(f"copy dontDeleteMe\\assets\\Fixing.exe {dmodspath}")
-    os.system("start " + os.path.join(dmodspath, "Fixing.exe"))
+    RunAsPowerShell("start " + os.path.join(dmodspath, "Fixing.exe"))
     RunAsPowerShell(f"del /s /q {os.path.join(dmodspath,'Fixing.exe')}")
 
 
@@ -141,6 +145,58 @@ def loadsf():
         RunAsPowerShell(f"copy dontDeleteMe\\{i} {dsfpath}")
     for i in os.listdir("shaderFix"):
         RunAsPowerShell(f"copy dontDeleteMe\\{i} {dsfpath}")
+
+
+def resetConfig():
+    RunAsPowerShell("del /s /q game.txt")
+    RunAsPowerShell("del /s /q setting.json")
+
+
+def getASwitch():
+    print("选择开关状态：")
+    switch = conkits.Choice(options=["* 开 *", "* 关 *"])
+    switch.set_keys({"up": "H", "down": "P", "confirm": "\r"})
+    switch.checked_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+    switch.unchecked_ansi_code = conkits.Colors256.FORE255
+    switch.click_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+    return not switch.run()
+
+
+def launchSetting():
+    def quitSetting():
+        pass
+
+    def gameConfirm():
+        print("")
+        settings["confirm_game"] = getASwitch()
+        json.dump(settings, open("setting.json", "w", encoding="utf8"))
+        launchSetting()
+
+    def modConfirm():
+        print("")
+        settings["confirm_modloader"] = getASwitch()
+        json.dump(settings, open("setting.json", "w", encoding="utf8"))
+        launchSetting()
+
+    def setGame():
+        pass
+
+    clearConsole()
+    print("\n< ModLoaderNew-设置 >")
+    setting = conkits.Choice(
+        options=[
+            "* 退出设置                        *",
+            "* 拉起游戏时按键确认       <开关> *",
+            "* 拉起模组加载器时按键确认 <开关> *",
+            "* 游戏路径                 <文本> *",
+        ],
+        methods=[quitSetting, gameConfirm, modConfirm, setGame],
+    )
+    setting.set_keys({"up": "H", "down": "P", "confirm": "\r"})
+    setting.checked_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+    setting.unchecked_ansi_code = conkits.Colors256.FORE255
+    setting.click_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+    setting.run()
 
 
 print("正在加载配置文件...")
@@ -184,7 +240,14 @@ if not os.path.exists("game.txt"):
         print("按下任意键退出。")
         msvcrt.getch()
         sys.exit()
+if not os.path.exists("setting.json"):
+    json.dump(
+        {"confirm_game": False, "confirm_modloader": False},
+        open("setting.json", "w", encoding="utf8"),
+    )
 config = open("game.txt", "r", encoding="utf8").read()
+gamepath = config
+settings = json.load(open("setting.json", encoding="utf8"))
 tconfigpath = "dontDeleteMe\\assets\\d3dx.ini"
 temppath = os.path.join(tempfile.gettempdir(), "ModLoaderNew")
 dconfigpath = os.path.join(temppath, "3dmigoto\\d3dx.ini")
@@ -199,42 +262,64 @@ autoInstall()
 loadmod()
 fixmod()
 loadsf()
-print("准备拉起模组加载器...请按下任意键继续。")
-msvcrt.getch()
+print("准备拉起模组加载器...", end="")
+if settings["confirm_modloader"]:
+    print("请按下任意键继续。")
+    msvcrt.getch()
+else:
+    print("")
 cd = os.path.abspath(os.curdir)
 os.chdir(os.path.join(temppath, "3dmigoto"))
 os.startfile("3DMigoto Loader.exe")
-print("请检查新出现的窗口，如果出现了“Now run the game.”则模组加载器已经启动成功。\n请按下任意键继续。")
-msvcrt.getch()
-print("正在启动你的游戏...")
+print("请检查新出现的窗口，如果出现了“Now run the game.”则模组加载器已经启动成功。")
+print("准备拉起你的游戏...", end="")
+if settings["confirm_game"]:
+    print("请按下任意键继续。")
+    msvcrt.getch()
+else:
+    print("")
 try:
     os.startfile(config)
+    print("游戏已启动！按下任意键进入操作面板")
+    msvcrt.getch()
 except Exception as Error:
     print("启动失败，可能是游戏文件不存在或已经损坏，请检查game.txt中的路径是否有效。")
     print("按下任意键退出。")
     msvcrt.getch()
+    sys.exit()
 console = conkits.Choice(
     options=[
         "* 退出程序         *",
+        "* 重置配置文件     *",
+        "* 进入设置         *",
+        "* 自动安装模组     *",
         "* 重新加载模组     *",
         "* 重新加载渲染数据 *",
         "* 运行模组修复工具 *",
-        "* 自动安装模组     *",
     ],
-    methods=[sys.exit, loadmod, loadsf, fixmod, autoInstall],
+    methods=[
+        sys.exit,
+        resetConfig,
+        launchSetting,
+        autoInstall,
+        loadmod,
+        loadsf,
+        fixmod,
+    ],
 )
 console.set_keys({"up": "H", "down": "P", "confirm": "\r"})
 console.checked_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
 console.unchecked_ansi_code = conkits.Colors256.FORE255
 console.click_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
 os.chdir(cd)
-os.system("cls")
+clearConsole()
 while True:
-    print("\n游戏已启动。\n模组加载器已注入成功。")
+    print("< ModLoaderNew-操作面板 >")
+    print(f"\n游戏路径：[ {gamepath} ]\n模组加载器：[ 注入成功 ]")
     print("\n可执行的操作...\n")
     print("\x1b[33m↓ 使用箭头键切换，回车键确认 ↓\x1b[0m")
     console.run()
     print("完成。")
     print("按下任意键继续...")
     msvcrt.getch()
-    os.system("cls")
+    clearConsole()

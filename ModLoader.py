@@ -1,12 +1,11 @@
-print("ModLoader New v1.3.0 (!-Alpha)")
+print("ModLoaderNew v1.3.1")
 print("编写与开发 By <Rundll86> [ https://rundll86.github.io/ ]")
 print("项目仓库 With <Github> [ https://github.com/Rundll86/ModLoaderNew/ ]")
 print("！此程序是免费且开源的，如果你是付费购买的，那么你已经被骗了！")
 print("")
 print("正在初始化...")
 from zipfile import *
-import os, shutil, msvcrt, subprocess, threading, time, sys, tempfile, conkits, rich
-import rich.style
+import os, shutil, msvcrt, subprocess, threading, time, sys, tempfile, conkits
 
 
 def RunAsPowerShell(Cmd):
@@ -65,7 +64,7 @@ def checkGame(path):
             global stime
             print(f"用时：{round(time.time()-stime,2)}秒。")
             print("这是你的游戏吗？")
-            rich.print("[yellow]↓ 使用箭头键切换，回车键确认 ↓[/yellow]")
+            print("\x1b[33m↓ 使用箭头键切换，回车键确认 ↓\x1b[0m")
             selector = conkits.Choice(options=["* 是   *", "* 不是 *"])
             selector.set_keys({"up": "H", "down": "P", "confirm": "\r"})
             selector.checked_ansi_code = (
@@ -141,7 +140,7 @@ data = cg.read().format(GamePath=config)
 print("正在加载核心脚本...")
 ZipFile("dontDeleteMe/assets/core.ddm").extractall(temppath)
 open(dconfigpath, "w", encoding="utf8").write(data)
-print("正在自动安装Mod...", end="")
+print("正在自动安装模组...", end="")
 modlist = os.listdir("autoInstall")
 if len(modlist) > 0:
     print("")
@@ -152,12 +151,12 @@ if len(modlist) > 0:
     finish = 0
     for i in modlist:
         if os.path.isdir(i):
-            print(f"   - 跳过安装「{os.path.basename(i)}」，其不是有效的Mod文件。")
+            print(f"   - 跳过安装「{os.path.basename(i)}」，其不是有效的模组文件。")
             continue
         try:
             ZipFile(i)
         except:
-            print(f"   - 跳过安装「{os.path.basename(i)}」，其不是有效的Mod文件。")
+            print(f"   - 跳过安装「{os.path.basename(i)}」，其不是有效的模组文件。")
             continue
         waittime += 1
         print(f" - 开始安装「{i}」。")
@@ -167,24 +166,39 @@ if len(modlist) > 0:
     print(f"用时：{round(time.time()-stime,2)}秒。")
 else:
     print("好吧，并没有。")
-print("正在加载Mod...")
-os.system(f"rmdir /s /q {dmodspath}")
-shutil.copytree("mods", dmodspath)
-print("正在运行Mod修复工具...")
-RunAsPowerShell(f"copy dontDeleteMe\\assets\\Fixing.exe {dmodspath}")
-os.system("start " + os.path.join(dmodspath, "Fixing.exe"))
-RunAsPowerShell(f"del /s /q {os.path.join(dmodspath,'Fixing.exe')}")
-print("正在拷贝ShaderFix...")
-RunAsPowerShell(f"rmdir /s /q {dsfpath}")
-RunAsPowerShell(f"mkdir {dsfpath}")
-ddmlist = os.listdir("dontDeleteMe")
-ddmlist.remove("assets")
-for i in ddmlist:
-    RunAsPowerShell(f"copy dontDeleteMe\\{i} {dsfpath}")
-for i in os.listdir("shaderFix"):
-    RunAsPowerShell(f"copy dontDeleteMe\\{i} {dsfpath}")
-print("准备拉起Mod加载器...请按下任意键继续。")
+
+
+def loadmod():
+    print("正在加载模组...")
+    os.system(f"rmdir /s /q {dmodspath}")
+    shutil.copytree("mods", dmodspath)
+
+
+def fixmod():
+    print("正在运行模组修复工具...")
+    RunAsPowerShell(f"copy dontDeleteMe\\assets\\Fixing.exe {dmodspath}")
+    os.system("start " + os.path.join(dmodspath, "Fixing.exe"))
+    RunAsPowerShell(f"del /s /q {os.path.join(dmodspath,'Fixing.exe')}")
+
+
+def loadsf():
+    print("正在加载渲染数据...")
+    RunAsPowerShell(f"rmdir /s /q {dsfpath}")
+    RunAsPowerShell(f"mkdir {dsfpath}")
+    ddmlist = os.listdir("dontDeleteMe")
+    ddmlist.remove("assets")
+    for i in ddmlist:
+        RunAsPowerShell(f"copy dontDeleteMe\\{i} {dsfpath}")
+    for i in os.listdir("shaderFix"):
+        RunAsPowerShell(f"copy dontDeleteMe\\{i} {dsfpath}")
+
+
+loadmod()
+fixmod()
+loadsf()
+print("准备拉起模组加载器...请按下任意键继续。")
 msvcrt.getch()
+cd = os.path.abspath(os.curdir)
 os.chdir(os.path.join(temppath, "3dmigoto"))
 os.startfile("3DMigoto Loader.exe")
 print("请检查新出现的窗口，如果出现了“Now run the game.”则模组加载器已经启动成功。\n请按下任意键继续。")
@@ -194,8 +208,24 @@ try:
     os.startfile(config)
 except Exception as Error:
     print("启动失败，可能是游戏文件不存在或已经损坏，请检查game.txt中的路径是否有效。")
-    print(f"错误：{Error}")
-else:
-    print("成功启动游戏，游戏窗口稍后将会出现。")
-print("按下任意键退出。")
-msvcrt.getch()
+    print("按下任意键退出。")
+    msvcrt.getch()
+console = conkits.Choice(
+    options=["* 重新加载模组     *", "* 运行模组修复工具 *", "* 重新加载渲染数据 *", "* 退出程序         *"],
+    methods=[loadmod, fixmod, loadsf, sys.exit],
+)
+console.set_keys({"up": "H", "down": "P", "confirm": "\r"})
+console.checked_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+console.unchecked_ansi_code = conkits.Colors256.FORE255
+console.click_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+os.chdir(cd)
+os.system("cls")
+while True:
+    print("\n游戏已启动。\n模组加载器已注入成功。")
+    print("\n可执行的操作...\n")
+    print("\x1b[33m↓ 使用箭头键切换，回车键确认 ↓\x1b[0m")
+    console.run()
+    print("完成。")
+    print("按下任意键继续...")
+    msvcrt.getch()
+    os.system("cls")

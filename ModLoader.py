@@ -5,7 +5,8 @@ print("！此程序是免费且开源的，如果你是付费购买的，那么�
 print("")
 print("正在初始化...")
 from zipfile import *
-import os, shutil, msvcrt, subprocess, threading, time, sys, tempfile
+import os, shutil, msvcrt, subprocess, threading, time, sys, tempfile, conkits, rich
+import rich.style
 
 
 def RunAsPowerShell(Cmd):
@@ -52,6 +53,42 @@ def aData(i):
     finish += 1
 
 
+def checkGame(path):
+    for root, dir, file in os.walk(path):
+        if "YuanShen.exe" in file or "GenshinImpact.exe" in file:
+            if "YuanShen.exe" in file:
+                gametype = "YuanShen"
+            if "GenshinImpact.exe" in file:
+                gametype = "GenshinImpact"
+            gamepath = os.path.join(root, f"{gametype}.exe")
+            print(f"已找到「{gametype}.exe」，其在 [ {gamepath} ] 。")
+            global stime
+            print(f"用时：{round(time.time()-stime,2)}秒。")
+            print("这是你的游戏吗？")
+            rich.print("[yellow]使用箭头键切换，回车键确认[/yellow]")
+            selector = conkits.Choice(options=["* 是   *", "* 不是 *"])
+            selector.set_keys({"up": "H", "down": "P", "confirm": "\r"})
+            selector.checked_ansi_code = (
+                conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+            )
+            selector.unchecked_ansi_code = conkits.Colors256.FORE255
+            selector.click_ansi_code = (
+                conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+            )
+            selected = not selector.run()
+            if selected:
+                global ok
+                ok = True
+                break
+            else:
+                stime = time.time()
+                print("正在重新查找...")
+    if ok:
+        return gamepath
+    else:
+        return ""
+
+
 print("正在加载配置文件...")
 if not os.path.exists("game.txt"):
     print("检测到配置文件不存在，正在生成...")
@@ -63,19 +100,12 @@ if not os.path.exists("game.txt"):
     gamepath = ""
     for i in disklist:
         if os.path.exists(f"{i}:\\"):
-            for root, dir, file in os.walk(f"{i}:\\"):
-                if "YuanShen.exe" in file or "GenshinImpact.exe" in file:
-                    if "YuanShen.exe" in file:
-                        gametype = "YuanShen"
-                        gamepath = os.path.join(root, "YuanShen.exe")
-                    if "GenshinImpact.exe" in file:
-                        gametype = "GenshinImpact"
-                        gamepath = os.path.join(root, "GenshinImpact.exe")
-                    ok = True
-                    print(f"已找到「{gametype}.exe」，其在 [ {gamepath} ] 。")
-                    print(f"用时：{round(time.time()-stime,2)}秒。")
-                    break
-            if ok:
+            result = checkGame(f"{i}:\\")
+            if result == "":
+                ok = False
+            else:
+                ok = True
+                gamepath = result
                 break
         else:
             continue
@@ -83,19 +113,12 @@ if not os.path.exists("game.txt"):
         Cdirlist = os.listdir("C:\\")
         Cdirlist.remove("Windows")
         for i in Cdirlist:
-            for root, dir, file in os.walk("C:\\" + i):
-                if "YuanShen.exe" in file or "GenshinImpact.exe" in file:
-                    if "YuanShen.exe" in file:
-                        gametype = "YuanShen"
-                        gamepath = os.path.join(root, "YuanShen.exe")
-                    if "GenshinImpact.exe" in file:
-                        gametype = "GenshinImpact"
-                        gamepath = os.path.join(root, "GenshinImpact.exe")
-                    ok = True
-                    print(f"已找到「{gametype}.exe」，其在 [ {gamepath} ] 。")
-                    print(f"用时：{round(time.time()-stime,2)}秒。")
-                    break
-            if ok:
+            result = checkGame("C:\\" + i)
+            if result == "":
+                ok = False
+            else:
+                ok = True
+                gamepath = result
                 break
     if ok:
         print("正在写入配置文件...")

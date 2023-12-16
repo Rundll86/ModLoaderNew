@@ -88,6 +88,61 @@ def checkGame(path):
         return ""
 
 
+def autoInstall():
+    print("正在自动安装模组...", end="")
+    modlist = os.listdir("autoInstall")
+    if len(modlist) > 0:
+        print("")
+        global stime
+        stime = time.time()
+        for i in range(len(modlist)):
+            modlist[i] = os.path.join("autoInstall", modlist[i])
+        waittime = 0
+        finish = 0
+        for i in modlist:
+            if os.path.isdir(i):
+                print(f"   - 跳过安装「{os.path.basename(i)}」，其不是有效的模组文件。")
+                continue
+            try:
+                ZipFile(i)
+            except:
+                print(f"   - 跳过安装「{os.path.basename(i)}」，其不是有效的模组文件。")
+                continue
+            waittime += 1
+            print(f" - 开始安装「{i}」。")
+            threading.Thread(target=lambda: aData(i)).start()
+        while waittime != finish:
+            pass
+        print(f"用时：{round(time.time()-stime,2)}秒。")
+    else:
+        print("好吧，并没有。")
+
+
+def loadmod():
+    print("正在加载模组...")
+    os.system(f"rmdir /s /q {dmodspath}")
+    shutil.copytree("mods", dmodspath)
+
+
+def fixmod():
+    print("正在运行模组修复工具...")
+    RunAsPowerShell(f"copy dontDeleteMe\\assets\\Fixing.exe {dmodspath}")
+    os.system("start " + os.path.join(dmodspath, "Fixing.exe"))
+    RunAsPowerShell(f"del /s /q {os.path.join(dmodspath,'Fixing.exe')}")
+
+
+def loadsf():
+    print("正在加载渲染数据...")
+    RunAsPowerShell(f"rmdir /s /q {dsfpath}")
+    RunAsPowerShell(f"mkdir {dsfpath}")
+    ddmlist = os.listdir("dontDeleteMe")
+    ddmlist.remove("assets")
+    for i in ddmlist:
+        RunAsPowerShell(f"copy dontDeleteMe\\{i} {dsfpath}")
+    for i in os.listdir("shaderFix"):
+        RunAsPowerShell(f"copy dontDeleteMe\\{i} {dsfpath}")
+
+
 print("正在加载配置文件...")
 if not os.path.exists("game.txt"):
     print("检测到配置文件不存在，正在生成...")
@@ -140,59 +195,7 @@ data = cg.read().format(GamePath=config)
 print("正在加载核心脚本...")
 ZipFile("dontDeleteMe/assets/core.ddm").extractall(temppath)
 open(dconfigpath, "w", encoding="utf8").write(data)
-print("正在自动安装模组...", end="")
-modlist = os.listdir("autoInstall")
-if len(modlist) > 0:
-    print("")
-    stime = time.time()
-    for i in range(len(modlist)):
-        modlist[i] = os.path.join("autoInstall", modlist[i])
-    waittime = 0
-    finish = 0
-    for i in modlist:
-        if os.path.isdir(i):
-            print(f"   - 跳过安装「{os.path.basename(i)}」，其不是有效的模组文件。")
-            continue
-        try:
-            ZipFile(i)
-        except:
-            print(f"   - 跳过安装「{os.path.basename(i)}」，其不是有效的模组文件。")
-            continue
-        waittime += 1
-        print(f" - 开始安装「{i}」。")
-        threading.Thread(target=lambda: aData(i)).start()
-    while waittime != finish:
-        pass
-    print(f"用时：{round(time.time()-stime,2)}秒。")
-else:
-    print("好吧，并没有。")
-
-
-def loadmod():
-    print("正在加载模组...")
-    os.system(f"rmdir /s /q {dmodspath}")
-    shutil.copytree("mods", dmodspath)
-
-
-def fixmod():
-    print("正在运行模组修复工具...")
-    RunAsPowerShell(f"copy dontDeleteMe\\assets\\Fixing.exe {dmodspath}")
-    os.system("start " + os.path.join(dmodspath, "Fixing.exe"))
-    RunAsPowerShell(f"del /s /q {os.path.join(dmodspath,'Fixing.exe')}")
-
-
-def loadsf():
-    print("正在加载渲染数据...")
-    RunAsPowerShell(f"rmdir /s /q {dsfpath}")
-    RunAsPowerShell(f"mkdir {dsfpath}")
-    ddmlist = os.listdir("dontDeleteMe")
-    ddmlist.remove("assets")
-    for i in ddmlist:
-        RunAsPowerShell(f"copy dontDeleteMe\\{i} {dsfpath}")
-    for i in os.listdir("shaderFix"):
-        RunAsPowerShell(f"copy dontDeleteMe\\{i} {dsfpath}")
-
-
+autoInstall()
 loadmod()
 fixmod()
 loadsf()
@@ -211,8 +214,14 @@ except Exception as Error:
     print("按下任意键退出。")
     msvcrt.getch()
 console = conkits.Choice(
-    options=["* 重新加载模组     *", "* 运行模组修复工具 *", "* 重新加载渲染数据 *", "* 退出程序         *"],
-    methods=[loadmod, fixmod, loadsf, sys.exit],
+    options=[
+        "* 退出程序         *",
+        "* 重新加载模组     *",
+        "* 重新加载渲染数据 *",
+        "* 运行模组修复工具 *",
+        "* 自动安装模组     *",
+    ],
+    methods=[sys.exit, loadmod, loadsf, fixmod, autoInstall],
 )
 console.set_keys({"up": "H", "down": "P", "confirm": "\r"})
 console.checked_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0

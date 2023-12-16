@@ -93,7 +93,7 @@ def autoInstall():
     modlist = os.listdir("autoInstall")
     if len(modlist) > 0:
         print("")
-        global stime
+        global stime, waittime, finish
         stime = time.time()
         for i in range(len(modlist)):
             modlist[i] = os.path.join("autoInstall", modlist[i])

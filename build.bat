@@ -8,3 +8,5 @@ xcopy /e /i /h /y dontDeleteMe dist\dontDeleteMe
 mkdir dist\mods
 mkdir dist\shaderFix
 mkdir dist\autoInstall
+python dist-data.py
+start pushing.bat

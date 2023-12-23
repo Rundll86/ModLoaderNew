@@ -6,6 +6,10 @@
 - 自动生成 `d3dx.ini`  
 - 模组修复器（最新+传统）  
 - 自动拉起3DMigoto与游戏
+
+快速部署并使用  
+前提条件：`Python 3.8.5` 与 `PIP`  
+WindowsPowershell：
 ```plain
 > git clone https://github.com/Rundll86/ModLoaderNew.git
 > cd ModLoaderNew

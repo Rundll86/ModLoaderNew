@@ -5,7 +5,9 @@
 - 重写3DMigoto的帮助文本  
 - 自动生成 `d3dx.ini`  
 - 模组修复器（最新+传统）  
-- 自动拉起3DMigoto与游戏
+- 自动拉起3DMigoto与游戏  
+- 对游戏隐藏了3DMigoto的进程（包括其本身的窗口）
+- Whatever will be, will be...
 
 快速部署并使用  
 前提条件：`Python 3.8.5` 与 `PIP`  

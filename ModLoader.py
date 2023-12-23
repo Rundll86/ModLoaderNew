@@ -98,7 +98,7 @@ def checkGame(path):
                 break
             else:
                 stime = time.time()
-                print("正在重新查找...")
+                print("\n正在重新查找...\n")
     if ok:
         return gamepath
     else:
@@ -293,7 +293,7 @@ def findGame_methodA():
             ok = True
             break
         else:
-            print("正在重新查找...")
+            print("\n正在重新查找...\n")
     return gamepath
 
 
@@ -441,7 +441,7 @@ console = conkits.Choice(
         "* 修复模组（传统） *",
     ],
     methods=[
-        sys.exit,
+        lambda: (print("正在清理数据..."), sys.exit()),
         killGame,
         resetConfig,
         launchSetting,

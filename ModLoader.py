@@ -395,8 +395,17 @@ if not settings["debug_mode"]:
     else:
         print("")
     os.chdir(os.path.join(temppath, "3dmigoto"))
-    os.startfile("3DMigoto Loader.exe")
-    print("请检查新出现的窗口，如果出现了“Now run the game.”则模组加载器已经启动成功。")
+    startupinfo = subprocess.STARTUPINFO()
+    startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    startupinfo.wShowWindow = subprocess.SW_HIDE
+    subprocess.Popen(
+        "3dMigoto Loader.exe",
+        startupinfo=startupinfo,
+        stdin=subprocess.DEVNULL,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    os.chdir(cd)
 else:
     print("处于调试模式，操作取消。")
 print("准备拉起你的游戏...", end="")

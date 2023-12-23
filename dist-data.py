@@ -4,11 +4,11 @@ import zipfile, os, json
 def ZipDir(DirName, FileName, DontZip: list = []):
     FolderPath = os.path.join(os.getcwd(), DirName)
     File = zipfile.ZipFile(FileName, "w")
+    DontZip.append(FileName)
     for Root, Dirs, Files in os.walk(FolderPath):
         if os.path.basename(Root) in DontZip:
             continue
         for File2 in Files:
-            DontZip.append(FileName)
             if File2 in DontZip:
                 continue
             FilePath = os.path.join(Root, File2)

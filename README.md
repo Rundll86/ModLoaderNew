@@ -10,8 +10,13 @@
 - Whatever will be, will be...
 
 快速部署并使用  
-前提条件：`Python 3.8.5` 与 `PIP`  
-WindowsPowershell：
+先决条件：`Python 3.8.5`、`PIP` 与 `Git Bash`  
+配置 `Git Bash` 用户信息
+```plain
+> git config --global user.email "UserEmail"
+> git config --global user.name "UserName"
+```
+克隆代码并编译
 ```plain
 > git clone https://github.com/Rundll86/ModLoaderNew.git
 > cd ModLoaderNew

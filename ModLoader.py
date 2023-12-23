@@ -2,6 +2,7 @@ import os, json
 
 
 def clearConsole():
+    os.system("title ModLoaderNew")
     os.system("cls")
 
 
@@ -13,8 +14,10 @@ print("项目仓库 With <Github> [ https://github.com/Rundll86/ModLoaderNew/ ]"
 print("！此程序是免费且开源的，如果你是付费购买的，那么你已经被骗了！")
 print("")
 print("正在初始化...")
+os.environ["UNRAR_LIB_PATH"] = os.path.abspath("dontDeleteMe\\assets\\UnRAR64.dll")
 from zipfile import *
-import shutil, msvcrt, subprocess, threading, time, sys, tempfile, conkits, json, winreg, configparser, ctypes
+from unrar import rarfile
+import shutil, msvcrt, subprocess, threading, time, sys, tempfile, conkits, json, winreg, configparser, ctypes, tarfile
 
 
 def is_admin():
@@ -40,42 +43,28 @@ for root, dirs, files in os.walk("."):
             RunAsPowerShell(f'del /s /q "{os.path.join(root,i)}"')
 
 
-def popPath(path: str):
-    return "\\".join(path.split("\\")[1:])
+def extractfile(path, outdir):
+    filetype: str = os.path.splitext(path)[1]
+    filetype = filetype.strip(".")
+    supporttype = ["zip", "rar", "tar"]
+    if filetype not in supporttype:
+        raise Exception("not supported.")
+    if filetype == "zip":
+        ZipFile(path).extractall(outdir)
+    if filetype == "rar":
+        rarfile.RarFile(path).extractall(outdir)
+    if filetype == "tar":
+        tarfile.TarFile(path).extractall(outdir)
 
 
 def aData(i):
-    path = i + "___EXTRACT"
-    ZipFile(i).extractall(path)
-    RunAsPowerShell(f'del /s /q "{i}"')
-    src_dir = path
-    suffix = "Mod"
-    dest_dir = "mods"
-    for root, dirs, files in os.walk(src_dir):
-        for dir in dirs:
-            dir: str
-            if (suffix in dir) and ("Mods" not in dir):
-                src_path = os.path.join(root, dir)
-                dest_path = os.path.join(dest_dir, dir)
-                shutil.copytree(src_path, dest_path)
-    directory_name = "ShaderFixes"
-    directory_path = os.path.join(src_dir, directory_name)
-    dest_path = os.path.join(dest_dir, "..\\shaderFix")
-    if not os.path.exists(dest_path):
-        os.makedirs(dest_path)
-    for root, dirs, files in os.walk(directory_path):
-        for file in files:
-            src_file_path = os.path.join(root, file)
-            dest_file_path = os.path.join(dest_path, file)
-            shutil.copy2(src_file_path, dest_file_path)
-    test_directory_path = src_dir
-    for file in os.listdir(test_directory_path):
-        src_file_path = os.path.join(test_directory_path, file)
-        dest_file_path = os.path.join(dest_dir, file)
-        if os.path.isfile(src_file_path):
-            shutil.copy2(src_file_path, dest_file_path)
-    RunAsPowerShell(f'rmdir /s /q "{path}"')
-    print(f" - 安装成功「{i}」。")
+    try:
+        extractfile(i, "mods")
+        RunAsPowerShell(f'del /s /q "{i}"')
+        print(f" - 安装成功「{os.path.basename(i)}」。")
+    except Exception as Error:
+        print(f" - 安装失败「{os.path.basename(i)}」，其不是有效的模组文件。")
+        print(Error)
     global finish
     finish += 1
 
@@ -128,18 +117,10 @@ def autoInstall():
         waittime = 0
         finish = 0
         for i in modlist:
-            if os.path.isdir(i):
-                print(f"   - 跳过安装「{os.path.basename(i)}」，其不是有效的模组文件。")
-                continue
-            try:
-                ZipFile(i)
-            except:
-                print(f"   - 跳过安装「{os.path.basename(i)}」，其不是有效的模组文件。")
-                continue
             waittime += 1
-            print(f" - 开始安装「{i}」。")
+            print(f" - 开始安装「{os.path.basename(i)}」。")
             threading.Thread(target=lambda: aData(i)).start()
-        while waittime != finish:
+        while waittime > finish:
             pass
         print(f"用时：{round(time.time()-stime,2)}秒。")
     else:
@@ -155,8 +136,35 @@ def loadmod():
 def fixmod():
     print("正在运行模组修复工具...")
     RunAsPowerShell(f"copy dontDeleteMe\\assets\\Fixing.exe {dmodspath}")
-    RunAsPowerShell("start " + os.path.join(dmodspath, "Fixing.exe"))
-    RunAsPowerShell(f"del /s /q {os.path.join(dmodspath,'Fixing.exe')}")
+    os.chdir(dmodspath)
+    startupinfo = subprocess.STARTUPINFO()
+    startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    startupinfo.wShowWindow = subprocess.SW_HIDE
+    subprocess.Popen(
+        "Fixing.exe",
+        startupinfo=startupinfo,
+        stdin=subprocess.DEVNULL,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    os.chdir(cd)
+
+
+def fixmod_legacy():
+    print("正在运行模组修复工具（传统模式）...")
+    RunAsPowerShell(f"copy dontDeleteMe\\assets\\Fixing_legacy.exe {dmodspath}")
+    os.chdir(dmodspath)
+    startupinfo = subprocess.STARTUPINFO()
+    startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    startupinfo.wShowWindow = subprocess.SW_HIDE
+    subprocess.Popen(
+        "Fixing_legacy.exe",
+        startupinfo=startupinfo,
+        stdin=subprocess.DEVNULL,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    os.chdir(cd)
 
 
 def loadsf():
@@ -420,7 +428,8 @@ console = conkits.Choice(
         "* 自动安装模组     *",
         "* 重新加载模组     *",
         "* 重新加载渲染数据 *",
-        "* 运行模组修复工具 *",
+        "* 修复模组         *",
+        "* 修复模组（传统） *",
     ],
     methods=[
         sys.exit,
@@ -431,6 +440,7 @@ console = conkits.Choice(
         loadmod,
         loadsf,
         fixmod,
+        fixmod_legacy,
     ],
 )
 console.set_keys({"up": "H", "down": "P", "confirm": "\r"})

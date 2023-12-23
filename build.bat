@@ -10,3 +10,4 @@ mkdir dist\shaderFix
 mkdir dist\autoInstall
 python dist-data.py
 .\pushing.bat
+pause

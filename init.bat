@@ -7,3 +7,4 @@ pip install easygui
 pip install pyinstaller
 pip install conkits
 pip install rich
+pip install unrar

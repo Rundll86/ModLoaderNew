@@ -5,6 +5,7 @@
 - 重写3DMigoto的帮助文本  
 - 自动生成 `d3dx.ini`  
 - 模组修复器（最新+传统）  
+- 自动拉起3DMigoto与游戏
 ```plain
 > git clone https://github.com/Rundll86/ModLoaderNew.git
 > cd ModLoaderNew

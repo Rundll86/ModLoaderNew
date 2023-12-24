@@ -1,4 +1,4 @@
-ModLoaderNew v1.3.6
+ModLoaderNew v1.4.0
 A Model Importer for GenshinImpact.
 The program has been successfully injected if you see this text.
 Made by Rundll86.

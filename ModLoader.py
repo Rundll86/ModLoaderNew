@@ -17,7 +17,7 @@ print("正在初始化...")
 os.environ["UNRAR_LIB_PATH"] = os.path.abspath("dontDeleteMe\\assets\\UnRAR64.dll")
 from zipfile import *
 from unrar import rarfile
-import shutil, msvcrt, subprocess, threading, time, sys, tempfile, conkits, json, winreg, configparser, ctypes, tarfile
+import shutil, msvcrt, subprocess, threading, time, sys, tempfile, conkits, json, winreg, configparser, ctypes, tarfile, requests, py7zr
 
 
 def is_admin():
@@ -46,15 +46,17 @@ for root, dirs, files in os.walk("."):
 def extractfile(path, outdir):
     filetype: str = os.path.splitext(path)[1]
     filetype = filetype.strip(".")
-    supporttype = ["zip", "rar", "tar"]
+    supporttype = ["zip", "rar", "tar", "7z"]
     if filetype not in supporttype:
-        raise Exception("not supported.")
+        raise Exception("file not supported.")
     if filetype == "zip":
         ZipFile(path).extractall(outdir)
     if filetype == "rar":
         rarfile.RarFile(path).extractall(outdir)
     if filetype == "tar":
         tarfile.TarFile(path).extractall(outdir)
+    if filetype == "7z":
+        py7zr.SevenZipFile(path).extractall(outdir)
 
 
 def aData(i):
@@ -360,6 +362,179 @@ def killGame():
     RunAsPowerShell('taskkill /f /im "3DMigoto Loader.exe"')
 
 
+def repeatlist(_object, count):
+    result = []
+    for i in range(count):
+        result.append(_object)
+    return result
+
+
+def downloadMod(page=1, search="", searching=False, listing=False):
+    global needreturn
+    clearConsole()
+    print("< ModLoaderNew-模组下载器 >")
+    print("此功能正在实验，可能会出现一些问题。")
+    print("请选择浏览模式：")
+    if (not searching) and (not listing):
+        selector = conkits.Choice(options=["* 按关键词搜索   *", "* 最新发布的模组 *"])
+        selector.set_keys({"up": "H", "down": "P", "confirm": "\r"})
+        selector.checked_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+        selector.unchecked_ansi_code = conkits.Colors256.FORE255
+        selector.click_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+        mode = selector.run()
+    if searching:
+        mode = 0
+    if listing:
+        mode = 1
+    try:
+        if mode:
+            print(f"正在获取模组列表(第{page}页)...")
+            jsondata = json.loads(
+                requests.get(
+                    f"https://gamebanana.com/apiv11/Game/8552/Subfeed?_sSort=default&_nPage={page}"
+                ).text
+            )["_aRecords"]
+            print("获取成功！")
+        else:
+            if not searching:
+                while True:
+                    keyword = input("请输入关键词：")
+                    if keyword.strip(" ") == "":
+                        print("关键词不能为空！")
+                    else:
+                        break
+            else:
+                keyword = search
+            print(f"正在使用关键词「{keyword}」搜索模组(第{page}页)...")
+            jsondata = json.loads(
+                requests.get(
+                    f"https://gamebanana.com/apiv11/Game/8552/Subfeed?_sSort=default&_sName={keyword}&_nPage={page}"
+                ).text
+            )["_aRecords"]
+            print("搜索完成！\n")
+        result = []
+        for i in jsondata:
+            if i["_sModelName"] == "Mod":
+                result.append(
+                    {
+                        "name": i["_sName"],
+                        "author": i["_aSubmitter"]["_sName"],
+                        "id": i["_idRow"],
+                    }
+                )
+        if len(result) == 0:
+            print("已经到达最后一页！")
+            print("按下任意键返回操作面板...")
+            msvcrt.getch()
+            needreturn = True
+            return
+        print("请选择你要安装的模组：")
+        temp = [i["name"] for i in result]
+        temp.insert(0, "[ 切换上一页 -> ]")
+        temp.insert(0, "[ 切换下一页 -> ]")
+
+        def newpage():
+            downloadMod(
+                page + 1,
+                keyword if mode == 0 else search,
+                not mode,
+                mode,
+            )
+            global needreturn
+            needreturn = True
+
+        def lastpage():
+            global needreturn
+            if page == 1:
+                print("已经到达最前一页！")
+                print("按下任意键返回操作面板...")
+                msvcrt.getch()
+                needreturn = True
+                return
+            downloadMod(
+                page - 1,
+                keyword if mode == 0 else search,
+                not mode,
+                mode,
+            )
+            needreturn = True
+
+        methods = [newpage, lastpage]
+        selector = conkits.Choice(
+            options=temp,
+            methods=methods,
+        )
+        selector.set_keys({"up": "H", "down": "P", "confirm": "\r"})
+        selector.checked_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+        selector.unchecked_ansi_code = conkits.Colors256.FORE255
+        selector.click_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+        print("")
+        modid = selector.run() - 2
+        try:
+            if needreturn:
+                del needreturn
+                return
+        except:
+            pass
+        print("")
+        print(f"模组名：{result[modid]['name']}")
+        print(f"模组作者：{result[modid]['author']}")
+        print("你要下载这个模组吗？")
+        print("")
+        selector = conkits.Choice(options=["* 确定 *", "* 取消 *"])
+        selector.set_keys({"up": "H", "down": "P", "confirm": "\r"})
+        selector.checked_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+        selector.unchecked_ansi_code = conkits.Colors256.FORE255
+        selector.click_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+        confirm = selector.run()
+        if confirm:
+            print("按下任意键返回操作面板...")
+            msvcrt.getch()
+            needreturn = True
+            return
+        print(f"正在下载「{result[modid]['name']}」...")
+        files = json.loads(
+            requests.get(
+                f"https://gamebanana.com/apiv11/Mod/{result[modid]['id']}/DownloadPage"
+            ).text
+        )["_aFiles"]
+        index = 0
+        if len(files) > 1:
+            print("此模组有多个文件，你要下载哪一个？")
+            selector = conkits.Choice(
+                options=[
+                    "文件名："
+                    + i["_sFile"]
+                    + "，文件大小："
+                    + str(round(i["_nFilesize"] / 1024 / 1024, 2))
+                    + "MB"
+                    for i in files
+                ]
+            )
+            selector.set_keys({"up": "H", "down": "P", "confirm": "\r"})
+            selector.checked_ansi_code = (
+                conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+            )
+            selector.unchecked_ansi_code = conkits.Colors256.FORE255
+            selector.click_ansi_code = (
+                conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+            )
+            index = selector.run()
+            print("正在开始下载...")
+        print("如果文件太大，下载将会耗费很长时间，请耐心等待。")
+        open("autoInstall/" + files[index]["_sFile"], "wb").write(
+            requests.get(files[index]["_sDownloadUrl"]).content
+        )
+        print("下载完成！使用自动安装模组功能即可！")
+        print("按下任意键返回操作面板...")
+        msvcrt.getch()
+    except Exception as Error:
+        print("糟糕，出错了。请检查你的网络是否正常。")
+        print("错误信息：" + str(Error))
+        print("按下任意键返回操作面板...")
+        msvcrt.getch()
+
+
 print("正在加载配置文件...")
 if not os.path.exists("game.txt"):
     print("检测到配置文件不存在，正在生成...")
@@ -439,6 +614,7 @@ console = conkits.Choice(
         "* 重新加载渲染数据 *",
         "* 修复模组         *",
         "* 修复模组（传统） *",
+        "* 模组下载器       *",
     ],
     methods=[
         lambda: (print("正在清理数据..."), sys.exit()),
@@ -450,6 +626,7 @@ console = conkits.Choice(
         loadsf,
         fixmod,
         fixmod_legacy,
+        downloadMod,
     ],
 )
 console.set_keys({"up": "H", "down": "P", "confirm": "\r"})

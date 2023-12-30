@@ -252,51 +252,63 @@ def launchSetting():
 
 
 def findGame_methodA():
-    def pathExists(path):
-        try:
-            winreg.CloseKey(
-                winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, path, 0, winreg.KEY_READ)
-            )
-            return True
-        except:
-            return False
+    try:
 
-    print("正在查找游戏路径（方式A）...")
-    uninstallPath = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{}"
-    availablePath = []
-    if pathExists(uninstallPath.format("Genshin Impact")):
-        availablePath.append(uninstallPath.format("Genshin Impact"))
-    if pathExists(uninstallPath.format("原神")):
-        availablePath.append(uninstallPath.format("原神"))
-    global ok
-    ok = False
-    if len(availablePath) == 0:
+        def pathExists(path):
+            try:
+                winreg.CloseKey(
+                    winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, path, 0, winreg.KEY_READ)
+                )
+                return True
+            except:
+                return False
+
+        print("正在查找游戏路径（方式A）...")
+        uninstallPath = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{}"
+        availablePath = []
+        if pathExists(uninstallPath.format("Genshin Impact")):
+            availablePath.append(uninstallPath.format("Genshin Impact"))
+        if pathExists(uninstallPath.format("原神")):
+            availablePath.append(uninstallPath.format("原神"))
+        global ok
+        ok = False
+        if len(availablePath) == 0:
+            return ""
+        gamepath = ""
+        for i in availablePath:
+            key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, i, 0, winreg.KEY_READ)
+            data = os.path.join(
+                winreg.QueryValueEx(key, "InstallPath")[0], "config.ini"
+            )
+            parser = configparser.ConfigParser()
+            parser.read(data)
+            gamepath = os.path.join(
+                parser["launcher"]["game_install_path"],
+                parser["launcher"]["game_start_name"],
+            )
+            print(f"已找到「{parser['launcher']['game_start_name']}」，其在 [ {gamepath} ] 。")
+            print("这是你的游戏吗？")
+            print("\x1b[33m↓ 使用箭头键切换，回车键确认 ↓\x1b[0m")
+            selector = conkits.Choice(options=["* 是   *", "* 不是 *"])
+            selector.set_keys({"up": "H", "down": "P", "confirm": "\r"})
+            selector.checked_ansi_code = (
+                conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+            )
+            selector.unchecked_ansi_code = conkits.Colors256.FORE255
+            selector.click_ansi_code = (
+                conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+            )
+            selected = not selector.run()
+            if selected:
+                ok = True
+                break
+            else:
+                print("\n正在重新查找...\n")
+        return gamepath
+    except:
+        print("糟糕，出错了。")
+        ok = False
         return ""
-    gamepath = ""
-    for i in availablePath:
-        key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, i, 0, winreg.KEY_READ)
-        data = os.path.join(winreg.QueryValueEx(key, "InstallPath")[0], "config.ini")
-        parser = configparser.ConfigParser()
-        parser.read(data)
-        gamepath = os.path.join(
-            parser["launcher"]["game_install_path"],
-            parser["launcher"]["game_start_name"],
-        )
-        print(f"已找到「{parser['launcher']['game_start_name']}」，其在 [ {gamepath} ] 。")
-        print("这是你的游戏吗？")
-        print("\x1b[33m↓ 使用箭头键切换，回车键确认 ↓\x1b[0m")
-        selector = conkits.Choice(options=["* 是   *", "* 不是 *"])
-        selector.set_keys({"up": "H", "down": "P", "confirm": "\r"})
-        selector.checked_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
-        selector.unchecked_ansi_code = conkits.Colors256.FORE255
-        selector.click_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
-        selected = not selector.run()
-        if selected:
-            ok = True
-            break
-        else:
-            print("\n正在重新查找...\n")
-    return gamepath
 
 
 def findGame_methodB():

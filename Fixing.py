@@ -24,7 +24,7 @@ def processfolder(folder_path):
                     x for x in postionhashes_41 if x in data
                 ]
                 if len(matching) < 1:
-                    print("\t不认识此VB Hash")
+                    print("\t这不是一个有效的VB Hash类型配置文件。")
                 for match in matching:
                     if match in oldvsnew_41 and oldvsnew_41[match] not in data:
                         print("\t正在更新到4.1版本")
@@ -65,7 +65,7 @@ def processfolder(folder_path):
                     x for x in new_hashes_ib_43 if str(x) in data
                 ]
                 if len(matching) < 1:
-                    print("\t不认识此IB Hash")
+                    print("\t这不是一个有效的IB Hash类型配置文件。")
                 for match in matching:
                     if match in oldvsnew_43 and oldvsnew_43[match] not in data:
                         print("\t正在更新到4.3版本")
@@ -109,7 +109,6 @@ oldvsnew_43 = {}
 alljson_41 = json.load(open("fixing_4-1.json", encoding="utf8"))
 alljson_43 = json.load(open("fixing_4-3.json", encoding="utf8"))
 for j in alljson_41:
-    print(j)
     if j["new_draw_vb"] != "":
         if j["old_draw_vb"] != "":
             old_hashes_vb_41.append(j["old_draw_vb"])

@@ -226,14 +226,6 @@ def launchSetting():
         json.dump(settings, open("setting.json", "w", encoding="utf8"))
         launchSetting()
 
-    def setGame():
-        global gamepath
-        gamepathbackup = gamepath
-        generateConfig(False)
-        if not ok:
-            gamepath = gamepathbackup
-        launchSetting()
-
     def switchDebug():
         print("")
         settings["debug_mode"] = getASwitch()
@@ -247,10 +239,9 @@ def launchSetting():
             "* 退出设置                        *",
             "* 拉起游戏时按键确认       <开关> *",
             "* 拉起模组加载器时按键确认 <开关> *",
-            "* 游戏路径                 <文本> *",
             "* 是否启用调试模式         <开关> *",
         ],
-        methods=[quitSetting, gameConfirm, modConfirm, setGame, switchDebug],
+        methods=[quitSetting, gameConfirm, modConfirm, switchDebug],
     )
     setting.set_keys({"up": "H", "down": "P", "confirm": "\r"})
     setting.checked_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
@@ -555,6 +546,142 @@ def downloadMod(page=1, search="", searching=False, listing=False):
         msvcrt.getch()
 
 
+def striplist(target: list):
+    result = []
+    for i in target:
+        if i not in result:
+            result.append(i)
+    return result
+
+
+def manageMod():
+    def renamemod():
+        newname = input("\n请输入新的模组名：")
+        try:
+            os.chdir(os.path.dirname(modlist[modid][1]))
+            os.renames(modlist[modid][1], newname)
+            os.chdir(cd)
+            print("重命名成功！")
+        except Exception as E:
+            print("重命名失败。")
+            print(f"错误：{E}")
+
+    def deletemod():
+        print("\n你确定要删除此模组？")
+        selector2 = conkits.Choice(options=["* 确定 *", "* 取消 *"])
+        selector2.set_keys({"up": "H", "down": "P", "confirm": "\r"})
+        selector2.checked_ansi_code = (
+            conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+        )
+        selector2.unchecked_ansi_code = conkits.Colors256.FORE255
+        selector2.click_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+        selected = not selector2.run()
+        if selected:
+            try:
+                RunAsPowerShell(f'rmdir /s /q "{modlist[modid][1]}"')
+                print(f"已删除 {modlist[modid][0]}")
+            except Exception as E:
+                print("删除失败。")
+                print(f"错误：{E}")
+        else:
+            return
+
+    def changemod():
+        print("\nHash信息非常重要，如果不懂怎么改的请不要乱动！")
+        moddata = configparser.ConfigParser()
+        moddata.read(os.path.join(modlist[modid][1], modlist[modid][2]))
+        print("请选择你要更改的配置文件节：")
+        moddataSec = moddata.sections()
+        selector2 = conkits.Choice(options=moddataSec)
+        selector2.set_keys({"up": "H", "down": "P", "confirm": "\r"})
+        selector2.checked_ansi_code = (
+            conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+        )
+        selector2.unchecked_ansi_code = conkits.Colors256.FORE255
+        selector2.click_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+        selected = selector2.run()
+        print("\n请选择你要更改的键：")
+        keylist = [key[0] for key in moddata.items(moddataSec[selected])]
+        selector2 = conkits.Choice(options=keylist)
+        selector2.set_keys({"up": "H", "down": "P", "confirm": "\r"})
+        selector2.checked_ansi_code = (
+            conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+        )
+        selector2.unchecked_ansi_code = conkits.Colors256.FORE255
+        selector2.click_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+        selected2 = selector2.run()
+        print(f"\n当前值：{moddata[moddataSec[selected]][keylist[selected2]]}")
+        newvalue = input("请输入新的值（为空则取消）：")
+        if newvalue.strip(" ") == "":
+            print("已取消。")
+        else:
+            moddata[moddataSec[selected]][keylist[selected2]] = newvalue
+            moddata.write(
+                open(
+                    os.path.join(modlist[modid][1], modlist[modid][2]),
+                    "w",
+                    encoding="utf8",
+                )
+            )
+            print("写入成功！")
+
+    clearConsole()
+    print("< ModLoaderNew-模组管理器 >")
+    print("正在搜索模组目录...")
+    modlist = []
+    for root, dirs, files in os.walk("mods"):
+        for i in files:
+            if i.endswith(".ini") and len(i) > 4:
+                if "BUFFERVALUE" in os.path.basename(root):
+                    continue
+                modlist.append([os.path.basename(root), os.path.abspath(root), i])
+    modlist = striplist(modlist)
+    if len(modlist) == 0:
+        print("你还没有安装任何模组！")
+        print("按下任意键返回操作面板...")
+        msvcrt.getch()
+        return
+    print("请选择要更改的模组")
+    selector = conkits.Choice(options=[i[0] for i in modlist])
+    selector.set_keys({"up": "H", "down": "P", "confirm": "\r"})
+    selector.checked_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+    selector.unchecked_ansi_code = conkits.Colors256.FORE255
+    selector.click_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+    modid = selector.run()
+    print("")
+    print(f"模组名称：{modlist[modid][0]}")
+    print(f"模组路径：[ {modlist[modid][1]} ]")
+    print(f"模组配置文件名：[ {modlist[modid][2]} ]")
+    print("")
+    print("请选择你要进行的操作")
+    selector = conkits.Choice(
+        options=[
+            "* 重命名模组         *",
+            "* 删除此模组         *",
+            "* 更改模组的Hash信息 *",
+            "* 取消操作           *",
+        ],
+        methods=[renamemod, deletemod, changemod],
+    )
+    selector.set_keys({"up": "H", "down": "P", "confirm": "\r"})
+    selector.checked_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+    selector.unchecked_ansi_code = conkits.Colors256.FORE255
+    selector.click_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
+    selector.run()
+    print("按下任意键返回操作面板...")
+    msvcrt.getch()
+
+
+def manageGame():
+    clearConsole()
+    print("< ModLoaderNew-游戏路径搜索器 >\n")
+    global gamepath
+    gamepathbackup = gamepath
+    generateConfig(False)
+    if not ok:
+        gamepath = gamepathbackup
+
+
 print("正在加载配置文件...")
 if not os.path.exists("game.txt"):
     print("检测到配置文件不存在，正在生成...")
@@ -635,6 +762,8 @@ console = conkits.Choice(
         "* 修复模组         *",
         "* 修复模组（传统） *",
         "* 模组下载器       *",
+        "* 模组管理器       *",
+        "* 修改游戏路径     *",
     ],
     methods=[
         lambda: (print("正在清理数据..."), sys.exit()),
@@ -647,6 +776,8 @@ console = conkits.Choice(
         fixmod,
         fixmod_legacy,
         downloadMod,
+        manageMod,
+        manageGame,
     ],
 )
 console.set_keys({"up": "H", "down": "P", "confirm": "\r"})
@@ -655,6 +786,7 @@ console.unchecked_ansi_code = conkits.Colors256.FORE255
 console.click_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
 os.chdir(cd)
 clearConsole()
+
 while True:
     print("< ModLoaderNew-操作面板 >")
     print(f"\n游戏路径：[ {gamepath} ]\n模组加载器：[ 已注入 ]")

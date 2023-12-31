@@ -62,6 +62,14 @@ def extractfile(path, outdir):
 def aData(i):
     try:
         extractfile(i, "mods")
+        for root, dirs, files in os.walk("mods"):
+            if "SHADERFIX" in os.path.basename(root).upper():
+                for j in os.listdir(root):
+                    if os.path.isfile(os.path.join(root, j)):
+                        shutil.copy(os.path.join(root, j), os.path.abspath("shaderFix"))
+                    else:
+                        shutil.copy(os.path.join(root, j), "shaderFix")
+                RunAsPowerShell(f'rmdir /s /q "{root}"')
         RunAsPowerShell(f'del /s /q "{i}"')
         print(f" - 安装成功「{os.path.basename(i)}」。")
     except Exception as Error:

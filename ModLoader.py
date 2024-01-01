@@ -17,6 +17,8 @@ print("正在初始化...")
 os.environ["UNRAR_LIB_PATH"] = os.path.abspath("dontDeleteMe\\assets\\UnRAR64.dll")
 from zipfile import *
 from unrar import rarfile
+from io import BytesIO
+from PIL import Image
 import shutil, msvcrt, subprocess, threading, time, sys, tempfile, conkits, json, winreg, configparser, ctypes, tarfile, requests, py7zr
 
 
@@ -404,7 +406,7 @@ def downloadMod(page=1, search="", searching=False, listing=False):
                 requests.get(
                     f"https://gamebanana.com/apiv11/Game/8552/Subfeed?_sSort=default&_nPage={page}"
                 ).text
-            )["_aRecords"]
+            )
             print("获取成功！")
         else:
             if not searching:
@@ -421,16 +423,19 @@ def downloadMod(page=1, search="", searching=False, listing=False):
                 requests.get(
                     f"https://gamebanana.com/apiv11/Game/8552/Subfeed?_sSort=default&_sName={keyword}&_nPage={page}"
                 ).text
-            )["_aRecords"]
+            )
             print("搜索完成！\n")
         result = []
-        for i in jsondata:
+        for i in jsondata["_aRecords"]:
             if i["_sModelName"] == "Mod":
                 result.append(
                     {
                         "name": i["_sName"],
                         "author": i["_aSubmitter"]["_sName"],
                         "id": i["_idRow"],
+                        "face": i["_aPreviewMedia"]["_aImages"][0]["_sBaseUrl"]
+                        + "/"
+                        + i["_aPreviewMedia"]["_aImages"][0]["_sFile"],
                     }
                 )
         if len(result) == 0:
@@ -490,6 +495,10 @@ def downloadMod(page=1, search="", searching=False, listing=False):
         print("")
         print(f"模组名：{result[modid]['name']}")
         print(f"模组作者：{result[modid]['author']}")
+        print("正在下载模组封面...")
+        img = Image.open(BytesIO(requests.get(result[modid]["face"]).content))
+        print("下载完成！\n模组封面：")
+        printImage(img, 50)
         print("你要下载这个模组吗？")
         print("")
         selector = conkits.Choice(options=["* 确定 *", "* 取消 *"])
@@ -567,7 +576,7 @@ def manageMod():
             print(f"错误：{E}")
 
     def deletemod():
-        print("\n你确定要删除此模组？")
+        print("\n你确定要删除此模组及其子模组？")
         selector2 = conkits.Choice(options=["* 确定 *", "* 取消 *"])
         selector2.set_keys({"up": "H", "down": "P", "confirm": "\r"})
         selector2.checked_ansi_code = (
@@ -579,7 +588,7 @@ def manageMod():
         if selected:
             try:
                 RunAsPowerShell(f'rmdir /s /q "{modlist[modid][1]}"')
-                print(f"已删除 {modlist[modid][0]}")
+                print(f"已删除「{modlist[modid][0]}」。")
             except Exception as E:
                 print("删除失败。")
                 print(f"错误：{E}")
@@ -680,6 +689,23 @@ def manageGame():
     generateConfig(False)
     if not ok:
         gamepath = gamepathbackup
+
+
+def printImage(img: Image.Image, width):
+    img = img.resize((width, round(img.size[1] / img.size[0] * (width / 2))))
+    pixels = img.load()
+    RESET = "\033[0m"
+    ANSI_COLOR = "\033[38;2;{r};{g};{b}m"
+    for y in range(img.size[1]):
+        for x in range(img.size[0]):
+            cpixel = pixels[x, y]
+            if len(cpixel) == 3:
+                r, g, b = cpixel
+            else:
+                r, g, b, _ = cpixel
+            color_code = ANSI_COLOR.format(r=r, g=g, b=b)
+            sys.stdout.write(color_code + "█")
+        sys.stdout.write(RESET + "\n")
 
 
 print("正在加载配置文件...")

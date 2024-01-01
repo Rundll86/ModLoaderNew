@@ -1,3 +1,8 @@
+print(f"原神4.3模组修复工具（汉化+优化）")
+print("编写与开发 By <Rundll86> [ https://rundll86.github.io/ ]")
+print("！此程序是免费且开源的，如果你是付费购买的，那么你已经被骗了！")
+print("")
+print("正在初始化...")
 import os, json
 
 
@@ -27,7 +32,7 @@ def processfolder(folder_path):
                     print("\t这不是一个有效的VB Hash类型配置文件。")
                 for match in matching:
                     if match in oldvsnew_41 and oldvsnew_41[match] not in data:
-                        print("\t正在更新到4.1版本")
+                        print("\t正在更新到4.1版本...")
                         with open(
                             os.path.join(
                                 folder_path,
@@ -45,7 +50,7 @@ def processfolder(folder_path):
                         match in DetermineCharacterBasedOnPositionHash_41
                         and DetermineCharacterBasedOnPositionHash_41[match] not in data
                     ):
-                        print("\t正在更新到4.1版本")
+                        print("\t正在更新到4.1版本...")
                         with open(
                             os.path.join(
                                 folder_path,
@@ -68,7 +73,7 @@ def processfolder(folder_path):
                     print("\t这不是一个有效的IB Hash类型配置文件。")
                 for match in matching:
                     if match in oldvsnew_43 and oldvsnew_43[match] not in data:
-                        print("\t正在更新到4.3版本")
+                        print("\t正在更新到4.3版本...")
                         with open(
                             os.path.join(
                                 folder_path,

@@ -63,6 +63,7 @@ def extractfile(path, outdir):
 
 def aData(i):
     try:
+        global needdelete
         extractfile(i, "mods")
         for root, dirs, files in os.walk("mods"):
             if "SHADERFIX" in os.path.basename(root).upper():
@@ -71,7 +72,7 @@ def aData(i):
                         shutil.copy(os.path.join(root, j), os.path.abspath("shaderFix"))
                     else:
                         shutil.copy(os.path.join(root, j), "shaderFix")
-                RunAsPowerShell(f'rmdir /s /q "{root}"')
+                needdelete.append(root)
         RunAsPowerShell(f'del /s /q "{i}"')
         print(f" - 安装成功「{os.path.basename(i)}」。")
     except Exception as Error:
@@ -122,7 +123,8 @@ def autoInstall():
     modlist = os.listdir("autoInstall")
     if len(modlist) > 0:
         print("")
-        global stime, waittime, finish
+        global stime, waittime, finish,needdelete
+        needdelete=[]
         stime = time.time()
         for i in range(len(modlist)):
             modlist[i] = os.path.join("autoInstall", modlist[i])
@@ -134,6 +136,8 @@ def autoInstall():
             threading.Thread(target=lambda: aData(i)).start()
         while waittime > finish:
             pass
+        for i in needdelete:
+            RunAsPowerShell(f'rmdir /s /q "{i}"')
         print(f"用时：{round(time.time()-stime,2)}秒。")
     else:
         print("好吧，并没有。")

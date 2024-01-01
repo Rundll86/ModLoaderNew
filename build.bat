@@ -1,11 +1,6 @@
 echo off
 cls
 rmdir /s /q dist
-Pyinstaller -F Fixing.py
-copy dist\Fixing.exe dontDeleteMe\assets
-copy fixing_4-1.json dontDeleteMe\assets
-copy fixing_4-3.json dontDeleteMe\assets
-del /s /q dist\Fixing.exe
 Pyinstaller -F ModLoader.py
 del /s /q ModLoader.spec
 del /s /q Fixing.spec

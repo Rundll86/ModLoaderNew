@@ -111,8 +111,12 @@ DetermineCharacterBasedOnPositionHash_41 = {}
 old_hashes_ib_43 = []
 new_hashes_ib_43 = []
 oldvsnew_43 = {}
-alljson_41 = json.load(open("fixing_4-1.json", encoding="utf8"))
-alljson_43 = json.load(open("fixing_4-3.json", encoding="utf8"))
+alljson_41 = json.load(
+    open(os.path.join(os.path.dirname(__file__), "fixing_4-1.json"), encoding="utf8")
+)
+alljson_43:list = json.load(
+    open(os.path.join(os.path.dirname(__file__), "fixing_4-3.json"), encoding="utf8")
+)
 for j in alljson_41:
     if j["new_draw_vb"] != "":
         if j["old_draw_vb"] != "":

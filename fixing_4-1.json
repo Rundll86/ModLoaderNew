@@ -1,0 +1,1986 @@
+[
+    {
+        "position_vb": "73df62fe",
+        "old_draw_vb": "a3dd8fae",
+        "new_draw_vb": "",
+        "path": "./EnemyData/AbyssHerald/hash.json",
+        "folder": "./EnemyData/AbyssHerald",
+        "component_name": "2"
+    },
+    {
+        "position_vb": "385d2fad",
+        "old_draw_vb": "16e5380a",
+        "new_draw_vb": "01896bdc",
+        "path": "./EnemyData/AbyssLectorElectro/hash.json",
+        "folder": "./EnemyData/AbyssLectorElectro",
+        "component_name": "2"
+    },
+    {
+        "position_vb": "6db3d14e",
+        "old_draw_vb": "3e3f6114",
+        "new_draw_vb": "520d87f7",
+        "path": "./EnemyData/AbyssLectorPyro/hash.json",
+        "folder": "./EnemyData/AbyssLectorPyro",
+        "component_name": "2"
+    },
+    {
+        "position_vb": "22ffcdf0",
+        "old_draw_vb": "32c81efa",
+        "new_draw_vb": "",
+        "path": "./EnemyData/Andrius/hash.json",
+        "folder": "./EnemyData/Andrius",
+        "component_name": "2"
+    },
+    {
+        "position_vb": "da152664",
+        "old_draw_vb": "e6cd858b",
+        "new_draw_vb": "6f28aaac",
+        "path": "./EnemyData/AnnihilationSpecialistMek/hash.json",
+        "folder": "./EnemyData/AnnihilationSpecialistMek",
+        "component_name": ""
+    },
+    {
+        "position_vb": "f4192e42",
+        "old_draw_vb": "81b66b25",
+        "new_draw_vb": "",
+        "path": "./EnemyData/Azhdaha/hash.json",
+        "folder": "./EnemyData/Azhdaha",
+        "component_name": "2"
+    },
+    {
+        "position_vb": "f0777f4d",
+        "old_draw_vb": "482ef3dc",
+        "new_draw_vb": "",
+        "path": "./EnemyData/BigSlimeDendro/hash.json",
+        "folder": "./EnemyData/BigSlimeDendro",
+        "component_name": "3"
+    },
+    {
+        "position_vb": "0d95b913",
+        "old_draw_vb": "1c64ef68",
+        "new_draw_vb": "",
+        "path": "./EnemyData/BlackSerpentKnightRockBreakerAx/hash.json",
+        "folder": "./EnemyData/BlackSerpentKnightRockBreakerAx",
+        "component_name": ""
+    },
+    {
+        "position_vb": "e063a51f",
+        "old_draw_vb": "7fd2dc62",
+        "new_draw_vb": "5db509de",
+        "path": "./EnemyData/BlackSerpentWindcutter/hash.json",
+        "folder": "./EnemyData/BlackSerpentWindcutter",
+        "component_name": ""
+    },
+    {
+        "position_vb": "81f659d4",
+        "old_draw_vb": "29618597",
+        "new_draw_vb": "a084aab0",
+        "path": "./EnemyData/CryoCicinMage/hash.json",
+        "folder": "./EnemyData/CryoCicinMage",
+        "component_name": ""
+    },
+    {
+        "position_vb": "40c0ffab",
+        "old_draw_vb": "430c9cbe",
+        "new_draw_vb": "",
+        "path": "./EnemyData/Dvalin/hash.json",
+        "folder": "./EnemyData/Dvalin",
+        "component_name": "2"
+    },
+    {
+        "position_vb": "d5a83455",
+        "old_draw_vb": "71f8c4c6",
+        "new_draw_vb": "",
+        "path": "./EnemyData/ElectroRegisvine/hash.json",
+        "folder": "./EnemyData/ElectroRegisvine",
+        "component_name": "7"
+    },
+    {
+        "position_vb": "23d51a03",
+        "old_draw_vb": "c585c3fb",
+        "new_draw_vb": "4c60ecdc",
+        "path": "./EnemyData/FatuiAgent/hash.json",
+        "folder": "./EnemyData/FatuiAgent",
+        "component_name": ""
+    },
+    {
+        "position_vb": "ddd038f6",
+        "old_draw_vb": "e94f00aa",
+        "new_draw_vb": "60aa2f8d",
+        "path": "./EnemyData/FatuiMirrorMaiden/hash.json",
+        "folder": "./EnemyData/FatuiMirrorMaiden",
+        "component_name": ""
+    },
+    {
+        "position_vb": "23c24723",
+        "old_draw_vb": "baf62f1a",
+        "new_draw_vb": "3313003d",
+        "path": "./EnemyData/Hilichurl/hash.json",
+        "folder": "./EnemyData/Hilichurl",
+        "component_name": ""
+    },
+    {
+        "position_vb": "69932870",
+        "old_draw_vb": "5081af9b",
+        "new_draw_vb": "d96480bc",
+        "path": "./EnemyData/HilicurlRangerHydro/hash.json",
+        "folder": "./EnemyData/HilicurlRangerHydro",
+        "component_name": ""
+    },
+    {
+        "position_vb": "ecda2927",
+        "old_draw_vb": "70cc2de5",
+        "new_draw_vb": "",
+        "path": "./EnemyData/KairagiFiery/hash.json",
+        "folder": "./EnemyData/KairagiFiery",
+        "component_name": ""
+    },
+    {
+        "position_vb": "da804958",
+        "old_draw_vb": "9bc73737",
+        "new_draw_vb": "",
+        "path": "./EnemyData/KairagiThunder/hash.json",
+        "folder": "./EnemyData/KairagiThunder",
+        "component_name": ""
+    },
+    {
+        "position_vb": "0a894825",
+        "old_draw_vb": "0dcd3f88",
+        "new_draw_vb": "",
+        "path": "./EnemyData/LaSignoraHarbingers/hash.json",
+        "folder": "./EnemyData/LaSignoraHarbingers",
+        "component_name": "2"
+    },
+    {
+        "position_vb": "715e04f5",
+        "old_draw_vb": "8edfcd7f",
+        "new_draw_vb": "073ae258",
+        "path": "./EnemyData/LawachurlGeo/hash.json",
+        "folder": "./EnemyData/LawachurlGeo",
+        "component_name": ""
+    },
+    {
+        "position_vb": "05cbdcc5",
+        "old_draw_vb": "a191e7c2",
+        "new_draw_vb": "",
+        "path": "./EnemyData/MagatsuMitakeNarukaminoMikoto/hash.json",
+        "folder": "./EnemyData/MagatsuMitakeNarukaminoMikoto",
+        "component_name": "3"
+    },
+    {
+        "position_vb": "a86a5c2b",
+        "old_draw_vb": "7274e051",
+        "new_draw_vb": "22758a26",
+        "path": "./EnemyData/Mitachurl/hash.json",
+        "folder": "./EnemyData/Mitachurl",
+        "component_name": ""
+    },
+    {
+        "position_vb": "73350cc0",
+        "old_draw_vb": "0b983685",
+        "new_draw_vb": "7a5fa46e",
+        "path": "./EnemyData/RuinGuard/hash.json",
+        "folder": "./EnemyData/RuinGuard",
+        "component_name": ""
+    },
+    {
+        "position_vb": "34f98d8f",
+        "old_draw_vb": "8b79cbfa",
+        "new_draw_vb": "babcd593",
+        "path": "./EnemyData/RuinHunter/hash.json",
+        "folder": "./EnemyData/RuinHunter",
+        "component_name": ""
+    },
+    {
+        "position_vb": "7b476b00",
+        "old_draw_vb": "4258388c",
+        "new_draw_vb": "",
+        "path": "./EnemyData/TartagliaDelusion/hash.json",
+        "folder": "./EnemyData/TartagliaDelusion",
+        "component_name": ""
+    },
+    {
+        "position_vb": "09eccc99",
+        "old_draw_vb": "45404603",
+        "new_draw_vb": "",
+        "path": "./EnemyData/TartagliaHarbingers/hash.json",
+        "folder": "./EnemyData/TartagliaHarbingers",
+        "component_name": ""
+    },
+    {
+        "position_vb": "be82fa92",
+        "old_draw_vb": "19ca0e6e",
+        "new_draw_vb": "902f2149",
+        "path": "./MiscellaneousData/BlackCat/hash.json",
+        "folder": "./MiscellaneousData/BlackCat",
+        "component_name": ""
+    },
+    {
+        "position_vb": "",
+        "old_draw_vb": "b2bc717f",
+        "new_draw_vb": "3b595e58",
+        "path": "./MiscellaneousData/LoginGate/hash.json",
+        "folder": "./MiscellaneousData/LoginGate",
+        "component_name": ""
+    },
+    {
+        "position_vb": "46ef4305",
+        "old_draw_vb": "3a0fd3a8",
+        "new_draw_vb": "b3eafc8f",
+        "path": "./MiscellaneousData/CommonChest/hash.json",
+        "folder": "./MiscellaneousData/CommonChest",
+        "component_name": ""
+    },
+    {
+        "position_vb": "1d64b7ef",
+        "old_draw_vb": "9e735f65",
+        "new_draw_vb": "00c51b76",
+        "path": "./MiscellaneousData/CryoCicinMageLatern/hash.json",
+        "folder": "./MiscellaneousData/CryoCicinMageLatern",
+        "component_name": ""
+    },
+    {
+        "position_vb": "c426a5b3",
+        "old_draw_vb": "7e46ac01",
+        "new_draw_vb": "f7a38326",
+        "path": "./MiscellaneousData/ExquisiteChest/hash.json",
+        "folder": "./MiscellaneousData/ExquisiteChest",
+        "component_name": ""
+    },
+    {
+        "position_vb": "e9239f65",
+        "old_draw_vb": "6b347319",
+        "new_draw_vb": "e2d15c3e",
+        "path": "./MiscellaneousData/PreciousChest/hash.json",
+        "folder": "./MiscellaneousData/PreciousChest",
+        "component_name": ""
+    },
+    {
+        "position_vb": "44b721b4",
+        "old_draw_vb": "6b319e52",
+        "new_draw_vb": "e2d4b175",
+        "path": "./MiscellaneousData/Liloupar/hash.json",
+        "folder": "./MiscellaneousData/Liloupar",
+        "component_name": ""
+    },
+    {
+        "position_vb": "96f7406a",
+        "old_draw_vb": "10b2ae62",
+        "new_draw_vb": "99578145",
+        "path": "./MiscellaneousData/LisaStudentBook/hash.json",
+        "folder": "./MiscellaneousData/LisaStudentBook",
+        "component_name": ""
+    },
+    {
+        "position_vb": "600d512d",
+        "old_draw_vb": "e60a7404",
+        "new_draw_vb": "6fef5b23",
+        "path": "./MiscellaneousData/LuxoriousChest/hash.json",
+        "folder": "./MiscellaneousData/LuxoriousChest",
+        "component_name": ""
+    },
+    {
+        "position_vb": "e727e979",
+        "old_draw_vb": "9a2e6bfa",
+        "new_draw_vb": "13cb44dd",
+        "path": "./MiscellaneousData/SaraWings/hash.json",
+        "folder": "./MiscellaneousData/SaraWings",
+        "component_name": ""
+    },
+    {
+        "position_vb": "0c1b31c0",
+        "old_draw_vb": "68f35a77",
+        "new_draw_vb": "e1167550",
+        "path": "./MiscellaneousData/ShenheGhost/hash.json",
+        "folder": "./MiscellaneousData/ShenheGhost",
+        "component_name": ""
+    },
+    {
+        "position_vb": "035f91db",
+        "old_draw_vb": "8ab4e0ed",
+        "new_draw_vb": "",
+        "path": "./MiscellaneousData/SignoraWhip/hash.json",
+        "folder": "./MiscellaneousData/SignoraWhip",
+        "component_name": ""
+    },
+    {
+        "position_vb": "031ba068",
+        "old_draw_vb": "d7874eb9",
+        "new_draw_vb": "",
+        "path": "./MiscellaneousData/TheSevenBarbatos/hash.json",
+        "folder": "./MiscellaneousData/TheSevenBarbatos",
+        "component_name": "3"
+    },
+    {
+        "position_vb": "031ba068",
+        "old_draw_vb": "d7874eb9",
+        "new_draw_vb": "",
+        "path": "./MiscellaneousData/TheSevenPart/hash.json",
+        "folder": "./MiscellaneousData/TheSevenPart",
+        "component_name": "2"
+    },
+    {
+        "position_vb": "a75d82d2",
+        "old_draw_vb": "11523170",
+        "new_draw_vb": "98b71e57",
+        "path": "./MiscellaneousData/Waverider/hash.json",
+        "folder": "./MiscellaneousData/Waverider",
+        "component_name": ""
+    },
+    {
+        "position_vb": "837f3242",
+        "old_draw_vb": "0a5aa973",
+        "new_draw_vb": "",
+        "path": "./MiscellaneousData/YaeMiko5Tails/hash.json",
+        "folder": "./MiscellaneousData/YaeMiko5Tails",
+        "component_name": ""
+    },
+    {
+        "position_vb": "2e8504fd",
+        "old_draw_vb": "0dbdd55a",
+        "new_draw_vb": "",
+        "path": "./NPCData/Asmoday/hash.json",
+        "folder": "./NPCData/Asmoday",
+        "component_name": ""
+    },
+    {
+        "position_vb": "d2eb04e1",
+        "old_draw_vb": "9810aed3",
+        "new_draw_vb": "11f581f4",
+        "path": "./EnemyData/EremiteFloralRingDancer/hash.json",
+        "folder": "./EnemyData/EremiteFloralRingDancer",
+        "component_name": ""
+    },
+    {
+        "position_vb": "52cd5d0f",
+        "old_draw_vb": "1d4867f2",
+        "new_draw_vb": "94ad48d5",
+        "path": "./NPCData/BaronBunny/hash.json",
+        "folder": "./NPCData/BaronBunny",
+        "component_name": ""
+    },
+    {
+        "position_vb": "f8bfae50",
+        "old_draw_vb": "3c8597b4",
+        "new_draw_vb": "b560b893",
+        "path": "./NPCData/Chubby/hash.json",
+        "folder": "./NPCData/Chubby",
+        "component_name": ""
+    },
+    {
+        "position_vb": "a883e6be",
+        "old_draw_vb": "2d132af4",
+        "new_draw_vb": "8c839d21",
+        "path": "./NPCData/Crab/Crab/hash.json",
+        "folder": "./NPCData/Crab/Crab",
+        "component_name": ""
+    },
+    {
+        "position_vb": "3c1e8497",
+        "old_draw_vb": "c32d2063",
+        "new_draw_vb": "",
+        "path": "./NPCData/Dainsleif/hash.json",
+        "folder": "./NPCData/Dainsleif",
+        "component_name": ""
+    },
+    {
+        "position_vb": "3b2689bb",
+        "old_draw_vb": "5b0dca7c",
+        "new_draw_vb": "",
+        "path": "./NPCData/Dottore/hash.json",
+        "folder": "./NPCData/Dottore",
+        "component_name": ""
+    },
+    {
+        "position_vb": "862aec78",
+        "old_draw_vb": "f4a61aad",
+        "new_draw_vb": "7d43358a",
+        "path": "./NPCData/Guoba/hash.json",
+        "folder": "./NPCData/Guoba",
+        "component_name": ""
+    },
+    {
+        "position_vb": "d5537624",
+        "old_draw_vb": "52a30508",
+        "new_draw_vb": "",
+        "path": "./NPCData/Katheryne/hash.json",
+        "folder": "./NPCData/Katheryne",
+        "component_name": ""
+    },
+    {
+        "position_vb": "20fc3e49",
+        "old_draw_vb": "ca4b0738",
+        "new_draw_vb": "",
+        "path": "./NPCData/LaSignora/hash.json",
+        "folder": "./NPCData/LaSignora",
+        "component_name": ""
+    },
+    {
+        "position_vb": "86dba24f",
+        "old_draw_vb": "423c6354",
+        "new_draw_vb": "",
+        "path": "./NPCData/LoliNahida/hash.json",
+        "folder": "./NPCData/LoliNahida",
+        "component_name": ""
+    },
+    {
+        "position_vb": "d5adb4b4",
+        "old_draw_vb": "61ab7805",
+        "new_draw_vb": "8ac2cb13",
+        "path": "./NPCData/Oz/hash.json",
+        "folder": "./NPCData/Oz",
+        "component_name": ""
+    },
+    {
+        "position_vb": "1a09e6cd",
+        "old_draw_vb": "cb027e67",
+        "new_draw_vb": "42e75140",
+        "path": "./NPCData/Paimon/hash.json",
+        "folder": "./NPCData/Paimon",
+        "component_name": "Cloak"
+    },
+    {
+        "position_vb": "1f7f0600",
+        "old_draw_vb": "0028d4d1",
+        "new_draw_vb": "89cdfbf6",
+        "path": "./NPCData/Paimon/hash.json",
+        "folder": "./NPCData/Paimon",
+        "component_name": ""
+    },
+    {
+        "position_vb": "002b6d21",
+        "old_draw_vb": "0dca7cf8",
+        "new_draw_vb": "",
+        "path": "./NPCData/RexLapis/hash.json",
+        "folder": "./NPCData/RexLapis",
+        "component_name": ""
+    },
+    {
+        "position_vb": "928af15e",
+        "old_draw_vb": "e5822bbc",
+        "new_draw_vb": "",
+        "path": "./NPCData/Scaramouche/hash.json",
+        "folder": "./NPCData/Scaramouche",
+        "component_name": "Veil"
+    },
+    {
+        "position_vb": "4b08d014",
+        "old_draw_vb": "896e8a12",
+        "new_draw_vb": "d458677a",
+        "path": "./NPCData/Ushi/hash.json",
+        "folder": "./NPCData/Ushi",
+        "component_name": ""
+    },
+    {
+        "position_vb": "df65bb00",
+        "old_draw_vb": "8747eaa2",
+        "new_draw_vb": "0ea2c585",
+        "path": "./PlayerCharacterData/Albedo/hash.json",
+        "folder": "./PlayerCharacterData/Albedo",
+        "component_name": ""
+    },
+    {
+        "position_vb": "3ef08385",
+        "old_draw_vb": "70f00d36",
+        "new_draw_vb": "f9152211",
+        "path": "./PlayerCharacterData/Alhaitham/hash.json",
+        "folder": "./PlayerCharacterData/Alhaitham",
+        "component_name": ""
+    },
+    {
+        "position_vb": "46de82f3",
+        "old_draw_vb": "c987f4c0",
+        "new_draw_vb": "4062dbe7",
+        "path": "./PlayerCharacterData/Aloy/hash.json",
+        "folder": "./PlayerCharacterData/Aloy",
+        "component_name": ""
+    },
+    {
+        "position_vb": "caddc4c6",
+        "old_draw_vb": "870a7499",
+        "new_draw_vb": "0eef5bbe",
+        "path": "./PlayerCharacterData/Amber/hash.json",
+        "folder": "./PlayerCharacterData/Amber",
+        "component_name": ""
+    },
+    {
+        "position_vb": "7f94e8da",
+        "old_draw_vb": "da0adf2f",
+        "new_draw_vb": "53eff008",
+        "path": "./PlayerCharacterData/AmberCN/hash.json",
+        "folder": "./PlayerCharacterData/AmberCN",
+        "component_name": ""
+    },
+    {
+        "position_vb": "0107925f",
+        "old_draw_vb": "14c9337a",
+        "new_draw_vb": "9d2c1c5d",
+        "path": "./PlayerCharacterData/Ayaka/hash.json",
+        "folder": "./PlayerCharacterData/Ayaka",
+        "component_name": ""
+    },
+    {
+        "position_vb": "cf78a1d0",
+        "old_draw_vb": "8d173084",
+        "new_draw_vb": "04f21fa3",
+        "path": "./PlayerCharacterData/AyakaSpring/hash.json",
+        "folder": "./PlayerCharacterData/AyakaSpring",
+        "component_name": ""
+    },
+    {
+        "position_vb": "b473c856",
+        "old_draw_vb": "bf198f17",
+        "new_draw_vb": "36fca030",
+        "path": "./PlayerCharacterData/Ayato/hash.json",
+        "folder": "./PlayerCharacterData/Ayato",
+        "component_name": ""
+    },
+    {
+        "position_vb": "17baa562",
+        "old_draw_vb": "b1729bce",
+        "new_draw_vb": "3897b4e9",
+        "path": "./PlayerCharacterData/Baizhu/hash.json",
+        "folder": "./PlayerCharacterData/Baizhu",
+        "component_name": ""
+    },
+    {
+        "position_vb": "85282151",
+        "old_draw_vb": "f41c47cf",
+        "new_draw_vb": "7df968e8",
+        "path": "./PlayerCharacterData/Barbara/hash.json",
+        "folder": "./PlayerCharacterData/Barbara",
+        "component_name": ""
+    },
+    {
+        "position_vb": "8b9e7c22",
+        "old_draw_vb": "60fcbabe",
+        "new_draw_vb": "e9199599",
+        "path": "./PlayerCharacterData/BarbaraSummertime/hash.json",
+        "folder": "./PlayerCharacterData/BarbaraSummertime",
+        "component_name": ""
+    },
+    {
+        "position_vb": "51197c51",
+        "old_draw_vb": "927d46ca",
+        "new_draw_vb": "1b9869ed",
+        "path": "./PlayerCharacterData/Beidou/hash.json",
+        "folder": "./PlayerCharacterData/Beidou",
+        "component_name": ""
+    },
+    {
+        "position_vb": "993d1661",
+        "old_draw_vb": "8b2a1582",
+        "new_draw_vb": "02cf3aa5",
+        "path": "./PlayerCharacterData/Bennett/hash.json",
+        "folder": "./PlayerCharacterData/Bennett",
+        "component_name": ""
+    },
+    {
+        "position_vb": "9cee8711",
+        "old_draw_vb": "d0d995f3",
+        "new_draw_vb": "593cbad4",
+        "path": "./PlayerCharacterData/Candace/hash.json",
+        "folder": "./PlayerCharacterData/Candace",
+        "component_name": ""
+    },
+    {
+        "position_vb": "c5a6d98e",
+        "old_draw_vb": "c11fcbde",
+        "new_draw_vb": "48fae4f9",
+        "path": "./PlayerCharacterData/Charlotte/hash.json",
+        "folder": "./PlayerCharacterData/Charlotte",
+        "component_name": ""
+    },
+    {
+        "position_vb": "f717e00c",
+        "old_draw_vb": "7acaf240",
+        "new_draw_vb": "",
+        "path": "./PlayerCharacterData/Childe/hash.json",
+        "folder": "./PlayerCharacterData/Childe",
+        "component_name": "Scarf"
+    },
+    {
+        "position_vb": "489e3621",
+        "old_draw_vb": "a50e6bc8",
+        "new_draw_vb": "2ceb44ef",
+        "path": "./PlayerCharacterData/Chongyun/hash.json",
+        "folder": "./PlayerCharacterData/Chongyun",
+        "component_name": ""
+    },
+    {
+        "position_vb": "348e58c4",
+        "old_draw_vb": "50e8816e",
+        "new_draw_vb": "d90dae49",
+        "path": "./PlayerCharacterData/Collei/hash.json",
+        "folder": "./PlayerCharacterData/Collei",
+        "component_name": ""
+    },
+    {
+        "position_vb": "4cc92f60",
+        "old_draw_vb": "fc54f147",
+        "new_draw_vb": "75b1de60",
+        "path": "./PlayerCharacterData/Cyno/hash.json",
+        "folder": "./PlayerCharacterData/Cyno",
+        "component_name": ""
+    },
+    {
+        "position_vb": "9aeecbcb",
+        "old_draw_vb": "1f2a9e86",
+        "new_draw_vb": "96cfb1a1",
+        "path": "./PlayerCharacterData/Dehya/hash.json",
+        "folder": "./PlayerCharacterData/Dehya",
+        "component_name": ""
+    },
+    {
+        "position_vb": "6fdb0963",
+        "old_draw_vb": "56159d74",
+        "new_draw_vb": "dff0b253",
+        "path": "./PlayerCharacterData/Diluc/hash.json",
+        "folder": "./PlayerCharacterData/Diluc",
+        "component_name": ""
+    },
+    {
+        "position_vb": "a2d909c8",
+        "old_draw_vb": "aeab733d",
+        "new_draw_vb": "274e5c1a",
+        "path": "./PlayerCharacterData/DilucFlamme/hash.json",
+        "folder": "./PlayerCharacterData/DilucFlamme",
+        "component_name": ""
+    },
+    {
+        "position_vb": "e8083f19",
+        "old_draw_vb": "3d3acefa",
+        "new_draw_vb": "b4dfe1dd",
+        "path": "./PlayerCharacterData/Diona/hash.json",
+        "folder": "./PlayerCharacterData/Diona",
+        "component_name": ""
+    },
+    {
+        "position_vb": "2a2a63ab",
+        "old_draw_vb": "0f07748b",
+        "new_draw_vb": "86e25bac",
+        "path": "./PlayerCharacterData/Dori/hash.json",
+        "folder": "./PlayerCharacterData/Dori",
+        "component_name": ""
+    },
+    {
+        "position_vb": "107ba6e7",
+        "old_draw_vb": "9bd0821b",
+        "new_draw_vb": "1235ad3c",
+        "path": "./PlayerCharacterData/Eula/hash.json",
+        "folder": "./PlayerCharacterData/Eula",
+        "component_name": ""
+    },
+    {
+        "position_vb": "6162188c",
+        "old_draw_vb": "5abe4c02",
+        "new_draw_vb": "d35b6325",
+        "path": "./PlayerCharacterData/Faruzan/hash.json",
+        "folder": "./PlayerCharacterData/Faruzan",
+        "component_name": ""
+    },
+    {
+        "position_vb": "9838aedf",
+        "old_draw_vb": "6c491d3b",
+        "new_draw_vb": "e5ac321c",
+        "path": "./PlayerCharacterData/Fischl/hash.json",
+        "folder": "./PlayerCharacterData/Fischl",
+        "component_name": ""
+    },
+    {
+        "position_vb": "8f473224",
+        "old_draw_vb": "3cc8f82b",
+        "new_draw_vb": "b52dd70c",
+        "path": "./PlayerCharacterData/FischlHighness/hash.json",
+        "folder": "./PlayerCharacterData/FischlHighness",
+        "component_name": ""
+    },
+    {
+        "position_vb": "d2bfc751",
+        "old_draw_vb": "403b6be5",
+        "new_draw_vb": "7bf55145",
+        "path": "./PlayerCharacterData/Freminet/hash.json",
+        "folder": "./PlayerCharacterData/Freminet",
+        "component_name": ""
+    },
+    {
+        "position_vb": "a5169f1d",
+        "old_draw_vb": "721ca964",
+        "new_draw_vb": "fbf98643",
+        "path": "./PlayerCharacterData/Ganyu/hash.json",
+        "folder": "./PlayerCharacterData/Ganyu",
+        "component_name": ""
+    },
+    {
+        "position_vb": "3ce94cac",
+        "old_draw_vb": "1cbe5f20",
+        "new_draw_vb": "955b7007",
+        "path": "./PlayerCharacterData/Gorou/hash.json",
+        "folder": "./PlayerCharacterData/Gorou",
+        "component_name": ""
+    },
+    {
+        "position_vb": "51a75ba6",
+        "old_draw_vb": "17f8cba1",
+        "new_draw_vb": "9e1de486",
+        "path": "./PlayerCharacterData/Heizou/hash.json",
+        "folder": "./PlayerCharacterData/Heizou",
+        "component_name": ""
+    },
+    {
+        "position_vb": "dd16576c",
+        "old_draw_vb": "60345291",
+        "new_draw_vb": "e9d17db6",
+        "path": "./PlayerCharacterData/HuTao/hash.json",
+        "folder": "./PlayerCharacterData/HuTao",
+        "component_name": ""
+    },
+    {
+        "position_vb": "3e61a41f",
+        "old_draw_vb": "de4c81ac",
+        "new_draw_vb": "57a9ae8b",
+        "path": "./PlayerCharacterData/Itto/hash.json",
+        "folder": "./PlayerCharacterData/Itto",
+        "component_name": ""
+    },
+    {
+        "position_vb": "191af650",
+        "old_draw_vb": "e6055135",
+        "new_draw_vb": "6fe07e12",
+        "path": "./PlayerCharacterData/Jean/hash.json",
+        "folder": "./PlayerCharacterData/Jean",
+        "component_name": ""
+    },
+    {
+        "position_vb": "93bb2522",
+        "old_draw_vb": "2a29e333",
+        "new_draw_vb": "a3cccc14",
+        "path": "./PlayerCharacterData/JeanCN/hash.json",
+        "folder": "./PlayerCharacterData/JeanCN",
+        "component_name": ""
+    },
+    {
+        "position_vb": "16fef1eb",
+        "old_draw_vb": "972d56ee",
+        "new_draw_vb": "1ec879c9",
+        "path": "./PlayerCharacterData/JeanSea/hash.json",
+        "folder": "./PlayerCharacterData/JeanSea",
+        "component_name": ""
+    },
+    {
+        "position_vb": "8a081f34",
+        "old_draw_vb": "4b0aa762",
+        "new_draw_vb": "c2ef8845",
+        "path": "./PlayerCharacterData/Kaeya/hash.json",
+        "folder": "./PlayerCharacterData/Kaeya",
+        "component_name": ""
+    },
+    {
+        "position_vb": "7c0c47b3",
+        "old_draw_vb": "d155c95f",
+        "new_draw_vb": "58b0e678",
+        "path": "./PlayerCharacterData/Kazuha/hash.json",
+        "folder": "./PlayerCharacterData/Kazuha",
+        "component_name": ""
+    },
+    {
+        "position_vb": "3aaf3e94",
+        "old_draw_vb": "4526145e",
+        "new_draw_vb": "ccc33b79",
+        "path": "./PlayerCharacterData/Keqing/hash.json",
+        "folder": "./PlayerCharacterData/Keqing",
+        "component_name": ""
+    },
+    {
+        "position_vb": "0d7e3cc5",
+        "old_draw_vb": "efcc8769",
+        "new_draw_vb": "6629a84e",
+        "path": "./PlayerCharacterData/KeqingOpulent/hash.json",
+        "folder": "./PlayerCharacterData/KeqingOpulent",
+        "component_name": ""
+    },
+    {
+        "position_vb": "cc833025",
+        "old_draw_vb": "e656b9fd",
+        "new_draw_vb": "6fb396da",
+        "path": "./PlayerCharacterData/Kirara/hash.json",
+        "folder": "./PlayerCharacterData/Kirara",
+        "component_name": ""
+    },
+    {
+        "position_vb": "dcd74904",
+        "old_draw_vb": "52469e36",
+        "new_draw_vb": "dba3b111",
+        "path": "./PlayerCharacterData/Klee/hash.json",
+        "folder": "./PlayerCharacterData/Klee",
+        "component_name": ""
+    },
+    {
+        "position_vb": "dde4750a",
+        "old_draw_vb": "ef23d42d",
+        "new_draw_vb": "66c6fb0a",
+        "path": "./PlayerCharacterData/Kokomi/hash.json",
+        "folder": "./PlayerCharacterData/Kokomi",
+        "component_name": ""
+    },
+    {
+        "position_vb": "b82eaa26",
+        "old_draw_vb": "4320e589",
+        "new_draw_vb": "cac5caae",
+        "path": "./PlayerCharacterData/KujouSara/hash.json",
+        "folder": "./PlayerCharacterData/KujouSara",
+        "component_name": ""
+    },
+    {
+        "position_vb": "2656ccca",
+        "old_draw_vb": "ad28f613",
+        "new_draw_vb": "24cdd934",
+        "path": "./PlayerCharacterData/Layla/hash.json",
+        "folder": "./PlayerCharacterData/Layla",
+        "component_name": ""
+    },
+    {
+        "position_vb": "2a557add",
+        "old_draw_vb": "6f4a034a",
+        "new_draw_vb": "e6af2c6d",
+        "path": "./PlayerCharacterData/Lisa/hash.json",
+        "folder": "./PlayerCharacterData/Lisa",
+        "component_name": ""
+    },
+    {
+        "position_vb": "37c70461",
+        "old_draw_vb": "362fb2b3",
+        "new_draw_vb": "bfca9d94",
+        "path": "./PlayerCharacterData/LisaStudent/hash.json",
+        "folder": "./PlayerCharacterData/LisaStudent",
+        "component_name": ""
+    },
+    {
+        "position_vb": "98eb2db4",
+        "old_draw_vb": "bb7a73b6",
+        "new_draw_vb": "329f5c91",
+        "path": "./PlayerCharacterData/Lynette/hash.json",
+        "folder": "./PlayerCharacterData/Lynette",
+        "component_name": ""
+    },
+    {
+        "position_vb": "1876e82e",
+        "old_draw_vb": "14be9ad8",
+        "new_draw_vb": "9d5bb5ff",
+        "path": "./PlayerCharacterData/Mika/hash.json",
+        "folder": "./PlayerCharacterData/Mika",
+        "component_name": ""
+    },
+    {
+        "position_vb": "20d0bfab",
+        "old_draw_vb": "00741928",
+        "new_draw_vb": "8991360f",
+        "path": "./PlayerCharacterData/Mona/hash.json",
+        "folder": "./PlayerCharacterData/Mona",
+        "component_name": ""
+    },
+    {
+        "position_vb": "ee5ed1dc",
+        "old_draw_vb": "41f18240",
+        "new_draw_vb": "c814ad67",
+        "path": "./PlayerCharacterData/MonaCN/hash.json",
+        "folder": "./PlayerCharacterData/MonaCN",
+        "component_name": ""
+    },
+    {
+        "position_vb": "37ef15ec",
+        "old_draw_vb": "67d2cdf0",
+        "new_draw_vb": "ee37e2d7",
+        "path": "./PlayerCharacterData/Nahida/hash.json",
+        "folder": "./PlayerCharacterData/Nahida",
+        "component_name": ""
+    },
+    {
+        "position_vb": "b2acc1df",
+        "old_draw_vb": "2f95abf6",
+        "new_draw_vb": "a67084d1",
+        "path": "./PlayerCharacterData/Nilou/hash.json",
+        "folder": "./PlayerCharacterData/Nilou",
+        "component_name": ""
+    },
+    {
+        "position_vb": "55b43e99",
+        "old_draw_vb": "e4fc5902",
+        "new_draw_vb": "6d197625",
+        "path": "./PlayerCharacterData/Ningguang/hash.json",
+        "folder": "./PlayerCharacterData/Ningguang",
+        "component_name": ""
+    },
+    {
+        "position_vb": "db37b198",
+        "old_draw_vb": "10de9c78",
+        "new_draw_vb": "993bb35f",
+        "path": "./PlayerCharacterData/NingguangOrchid/hash.json",
+        "folder": "./PlayerCharacterData/NingguangOrchid",
+        "component_name": ""
+    },
+    {
+        "position_vb": "d1384d15",
+        "old_draw_vb": "57128011",
+        "new_draw_vb": "def7af36",
+        "path": "./PlayerCharacterData/Noelle/hash.json",
+        "folder": "./PlayerCharacterData/Noelle",
+        "component_name": ""
+    },
+    {
+        "position_vb": "cad5bebb",
+        "old_draw_vb": "1c88b789",
+        "new_draw_vb": "956d98ae",
+        "path": "./PlayerCharacterData/Qiqi/hash.json",
+        "folder": "./PlayerCharacterData/Qiqi",
+        "component_name": ""
+    },
+    {
+        "position_vb": "e48c61f3",
+        "old_draw_vb": "a05e7bec",
+        "new_draw_vb": "29bb54cb",
+        "path": "./PlayerCharacterData/RaidenShogun/hash.json",
+        "folder": "./PlayerCharacterData/RaidenShogun",
+        "component_name": ""
+    },
+    {
+        "position_vb": "a099b935",
+        "old_draw_vb": "3503373e",
+        "new_draw_vb": "bce61819",
+        "path": "./PlayerCharacterData/Razor/hash.json",
+        "folder": "./PlayerCharacterData/Razor",
+        "component_name": ""
+    },
+    {
+        "position_vb": "748f40a5",
+        "old_draw_vb": "9e1868d9",
+        "new_draw_vb": "17fd47fe",
+        "path": "./PlayerCharacterData/Rosaria/hash.json",
+        "folder": "./PlayerCharacterData/Rosaria",
+        "component_name": ""
+    },
+    {
+        "position_vb": "59a1f8b1",
+        "old_draw_vb": "f3d4a01a",
+        "new_draw_vb": "7a318f3d",
+        "path": "./PlayerCharacterData/RosariaCN/hash.json",
+        "folder": "./PlayerCharacterData/RosariaCN",
+        "component_name": ""
+    },
+    {
+        "position_vb": "c70b7fce",
+        "old_draw_vb": "f3be854a",
+        "new_draw_vb": "9e367179",
+        "path": "./PlayerCharacterData/Sayu/hash.json",
+        "folder": "./PlayerCharacterData/Sayu",
+        "component_name": "Hood"
+    },
+    {
+        "position_vb": "719e12da",
+        "old_draw_vb": "17d35e5e",
+        "new_draw_vb": "7a5baa6d",
+        "path": "./PlayerCharacterData/Sayu/hash.json",
+        "folder": "./PlayerCharacterData/Sayu",
+        "component_name": ""
+    },
+    {
+        "position_vb": "e44b58b5",
+        "old_draw_vb": "fde191d7",
+        "new_draw_vb": "7404bef0",
+        "path": "./PlayerCharacterData/Shenhe/hash.json",
+        "folder": "./PlayerCharacterData/Shenhe",
+        "component_name": ""
+    },
+    {
+        "position_vb": "7cfb62ea",
+        "old_draw_vb": "f82b93f8",
+        "new_draw_vb": "71cebcdf",
+        "path": "./PlayerCharacterData/Shinobu/hash.json",
+        "folder": "./PlayerCharacterData/Shinobu",
+        "component_name": ""
+    },
+    {
+        "position_vb": "b655c335",
+        "old_draw_vb": "fc07e82b",
+        "new_draw_vb": "75e2c70c",
+        "path": "./PlayerCharacterData/Sucrose/hash.json",
+        "folder": "./PlayerCharacterData/Sucrose",
+        "component_name": ""
+    },
+    {
+        "position_vb": "24ecd71a",
+        "old_draw_vb": "33c2fa53",
+        "new_draw_vb": "ba27d574",
+        "path": "./PlayerCharacterData/Thoma/hash.json",
+        "folder": "./PlayerCharacterData/Thoma",
+        "component_name": ""
+    },
+    {
+        "position_vb": "531187c9",
+        "old_draw_vb": "57897152",
+        "new_draw_vb": "de6c5e75",
+        "path": "./PlayerCharacterData/Tighnari/hash.json",
+        "folder": "./PlayerCharacterData/Tighnari",
+        "component_name": ""
+    },
+    {
+        "position_vb": "c77e380b",
+        "old_draw_vb": "609d4578",
+        "new_draw_vb": "e9786a5f",
+        "path": "./PlayerCharacterData/TravelerBoy/hash.json",
+        "folder": "./PlayerCharacterData/TravelerBoy",
+        "component_name": ""
+    },
+    {
+        "position_vb": "8239be13",
+        "old_draw_vb": "0d8adebb",
+        "new_draw_vb": "846ff19c",
+        "path": "./PlayerCharacterData/TravelerGirl/hash.json",
+        "folder": "./PlayerCharacterData/TravelerGirl",
+        "component_name": ""
+    },
+    {
+        "position_vb": "635466ca",
+        "old_draw_vb": "5c8b4993",
+        "new_draw_vb": "d56e66b4",
+        "path": "./PlayerCharacterData/Venti/hash.json",
+        "folder": "./PlayerCharacterData/Venti",
+        "component_name": ""
+    },
+    {
+        "position_vb": "d74251a0",
+        "old_draw_vb": "e9bf37f1",
+        "new_draw_vb": "605a18d6",
+        "path": "./PlayerCharacterData/Wanderer/hash.json",
+        "folder": "./PlayerCharacterData/Wanderer",
+        "component_name": "Hat"
+    },
+    {
+        "position_vb": "0110e1c7",
+        "old_draw_vb": "0d628859",
+        "new_draw_vb": "8487a77e",
+        "path": "./PlayerCharacterData/Wanderer/hash.json",
+        "folder": "./PlayerCharacterData/Wanderer",
+        "component_name": ""
+    },
+    {
+        "position_vb": "9427917d",
+        "old_draw_vb": "94523bab",
+        "new_draw_vb": "1db7148c",
+        "path": "./PlayerCharacterData/Xiangling/hash.json",
+        "folder": "./PlayerCharacterData/Xiangling",
+        "component_name": ""
+    },
+    {
+        "position_vb": "7f5ef8cc",
+        "old_draw_vb": "e6f38080",
+        "new_draw_vb": "6f16afa7",
+        "path": "./PlayerCharacterData/Xiao/hash.json",
+        "folder": "./PlayerCharacterData/Xiao",
+        "component_name": ""
+    },
+    {
+        "position_vb": "25aed172",
+        "old_draw_vb": "f9caefa2",
+        "new_draw_vb": "702fc085",
+        "path": "./PlayerCharacterData/Xingqiu/hash.json",
+        "folder": "./PlayerCharacterData/Xingqiu",
+        "component_name": ""
+    },
+    {
+        "position_vb": "b3d31859",
+        "old_draw_vb": "1a3107d3",
+        "new_draw_vb": "93d428f4",
+        "path": "./PlayerCharacterData/Xinyan/hash.json",
+        "folder": "./PlayerCharacterData/Xinyan",
+        "component_name": ""
+    },
+    {
+        "position_vb": "3a7f71f5",
+        "old_draw_vb": "7eb264fd",
+        "new_draw_vb": "f7574bda",
+        "path": "./PlayerCharacterData/Yae/hash.json",
+        "folder": "./PlayerCharacterData/Yae",
+        "component_name": ""
+    },
+    {
+        "position_vb": "eb8b62d3",
+        "old_draw_vb": "a2305da8",
+        "new_draw_vb": "2bd5728f",
+        "path": "./PlayerCharacterData/Yanfei/hash.json",
+        "folder": "./PlayerCharacterData/Yanfei",
+        "component_name": ""
+    },
+    {
+        "position_vb": "293449d6",
+        "old_draw_vb": "cf68b0bd",
+        "new_draw_vb": "468d9f9a",
+        "path": "./PlayerCharacterData/YaoYao/hash.json",
+        "folder": "./PlayerCharacterData/YaoYao",
+        "component_name": ""
+    },
+    {
+        "position_vb": "c58c76f9",
+        "old_draw_vb": "589fed34",
+        "new_draw_vb": "d17ac213",
+        "path": "./PlayerCharacterData/Yelan/hash.json",
+        "folder": "./PlayerCharacterData/Yelan",
+        "component_name": ""
+    },
+    {
+        "position_vb": "65618289",
+        "old_draw_vb": "25fea501",
+        "new_draw_vb": "ac1b8a26",
+        "path": "./PlayerCharacterData/Yoimiya/hash.json",
+        "folder": "./PlayerCharacterData/Yoimiya",
+        "component_name": ""
+    },
+    {
+        "position_vb": "221f052e",
+        "old_draw_vb": "423e7a1d",
+        "new_draw_vb": "cbdb553a",
+        "path": "./PlayerCharacterData/YunJin/hash.json",
+        "folder": "./PlayerCharacterData/YunJin",
+        "component_name": ""
+    },
+    {
+        "position_vb": "a75ba32e",
+        "old_draw_vb": "e646f8d3",
+        "new_draw_vb": "6fa3d7f4",
+        "path": "./PlayerCharacterData/Zhongli/hash.json",
+        "folder": "./PlayerCharacterData/Zhongli",
+        "component_name": ""
+    },
+    {
+        "position_vb": "6251a4f6",
+        "old_draw_vb": "98f4d6a5",
+        "new_draw_vb": "1111f982",
+        "path": "./SkillData/CandaceShield/CandaceShield/hash.json",
+        "folder": "./SkillData/CandaceShield/CandaceShield",
+        "component_name": ""
+    },
+    {
+        "position_vb": "c30c8a7c",
+        "old_draw_vb": "794c9a25",
+        "new_draw_vb": "4f7d845e",
+        "path": "./SkillData/CynoWolfMask/hash.json",
+        "folder": "./SkillData/CynoWolfMask",
+        "component_name": "3"
+    },
+    {
+        "position_vb": "3cd81031",
+        "old_draw_vb": "bf67e56a",
+        "new_draw_vb": "",
+        "path": "./SkillData/EulaECape/hash.json",
+        "folder": "./SkillData/EulaECape",
+        "component_name": ""
+    },
+    {
+        "position_vb": "abfcaf63",
+        "old_draw_vb": "34e18b4f",
+        "new_draw_vb": "",
+        "path": "./SkillData/MoraxLapidis/hash.json",
+        "folder": "./SkillData/MoraxLapidis",
+        "component_name": ""
+    },
+    {
+        "position_vb": "b0ec158e",
+        "old_draw_vb": "0c88df31",
+        "new_draw_vb": "856df016",
+        "path": "./SkillData/YaoyaoYuegui/YaoyaoYuegui/hash.json",
+        "folder": "./SkillData/YaoyaoYuegui/YaoyaoYuegui",
+        "component_name": ""
+    },
+    {
+        "position_vb": "d4b8d5d9",
+        "old_draw_vb": "5f75ad65",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Bows/3Star/EbonyBow/hash.json",
+        "folder": "./WeaponData/Bows/3Star/EbonyBow",
+        "component_name": ""
+    },
+    {
+        "position_vb": "d8763b05",
+        "old_draw_vb": "72285884",
+        "new_draw_vb": "fbcd77a3",
+        "path": "./WeaponData/Bows/3Star/Messenger/hash.json",
+        "folder": "./WeaponData/Bows/3Star/Messenger",
+        "component_name": ""
+    },
+    {
+        "position_vb": "774bce90",
+        "old_draw_vb": "9d71a25c",
+        "new_draw_vb": "14948d7b",
+        "path": "./WeaponData/Bows/3Star/RavenBow/hash.json",
+        "folder": "./WeaponData/Bows/3Star/RavenBow",
+        "component_name": ""
+    },
+    {
+        "position_vb": "774bce90",
+        "old_draw_vb": "9d71a25c",
+        "new_draw_vb": "14948d7b",
+        "path": "./WeaponData/Bows/3Star/RecurveBow/hash.json",
+        "folder": "./WeaponData/Bows/3Star/RecurveBow",
+        "component_name": ""
+    },
+    {
+        "position_vb": "774bce90",
+        "old_draw_vb": "9d71a25c",
+        "new_draw_vb": "14948d7b",
+        "path": "./WeaponData/Bows/3Star/SharpshooterOath/hash.json",
+        "folder": "./WeaponData/Bows/3Star/SharpshooterOath",
+        "component_name": ""
+    },
+    {
+        "position_vb": "d4b8d5d9",
+        "old_draw_vb": "5f75ad65",
+        "new_draw_vb": "d6908242",
+        "path": "./WeaponData/Bows/3Star/Slingshot/hash.json",
+        "folder": "./WeaponData/Bows/3Star/Slingshot",
+        "component_name": ""
+    },
+    {
+        "position_vb": "4dd715ab",
+        "old_draw_vb": "3e62e970",
+        "new_draw_vb": "b787c657",
+        "path": "./WeaponData/Bows/4Star/AlleyHunter/hash.json",
+        "folder": "./WeaponData/Bows/4Star/AlleyHunter",
+        "component_name": ""
+    },
+    {
+        "position_vb": "c56f30eb",
+        "old_draw_vb": "9a69cc1f",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Bows/4Star/BlackcliffWarbow/hash.json",
+        "folder": "./WeaponData/Bows/4Star/BlackcliffWarbow",
+        "component_name": ""
+    },
+    {
+        "position_vb": "8aff2a81",
+        "old_draw_vb": "2f496de0",
+        "new_draw_vb": "2f496de0",
+        "path": "./WeaponData/Bows/4Star/CompoundBow/CompoundBow/hash.json",
+        "folder": "./WeaponData/Bows/4Star/CompoundBow/CompoundBow",
+        "component_name": ""
+    },
+    {
+        "position_vb": "62f21d9f",
+        "old_draw_vb": "323c13b2",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Bows/4Star/EndOfTheLine/hash.json",
+        "folder": "./WeaponData/Bows/4Star/EndOfTheLine",
+        "component_name": ""
+    },
+    {
+        "position_vb": "b66b5f0b",
+        "old_draw_vb": "cc870789",
+        "new_draw_vb": "456228ae",
+        "path": "./WeaponData/Bows/4Star/FadingTwilight/hash.json",
+        "folder": "./WeaponData/Bows/4Star/FadingTwilight",
+        "component_name": ""
+    },
+    {
+        "position_vb": "4dd715ab",
+        "old_draw_vb": "3e62e970",
+        "new_draw_vb": "b787c657",
+        "path": "./WeaponData/Bows/4Star/FavoniusWarbow/hash.json",
+        "folder": "./WeaponData/Bows/4Star/FavoniusWarbow",
+        "component_name": ""
+    },
+    {
+        "position_vb": "e11f9dc0",
+        "old_draw_vb": "1d041a81",
+        "new_draw_vb": "94e135a6",
+        "path": "./WeaponData/Bows/4Star/Hamayumi/hash.json",
+        "folder": "./WeaponData/Bows/4Star/Hamayumi",
+        "component_name": ""
+    },
+    {
+        "position_vb": "9432bbb8",
+        "old_draw_vb": "0af98744",
+        "new_draw_vb": "831ca863",
+        "path": "./WeaponData/Bows/4Star/KingSquire/hash.json",
+        "folder": "./WeaponData/Bows/4Star/KingSquire",
+        "component_name": ""
+    },
+    {
+        "position_vb": "a6073737",
+        "old_draw_vb": "c5575324",
+        "new_draw_vb": "4cb27c03",
+        "path": "./WeaponData/Bows/4Star/MitternachtWaltz/hash.json",
+        "folder": "./WeaponData/Bows/4Star/MitternachtWaltz",
+        "component_name": ""
+    },
+    {
+        "position_vb": "62b27805",
+        "old_draw_vb": "be679cbd",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Bows/4Star/MouunsMoon/hash.json",
+        "folder": "./WeaponData/Bows/4Star/MouunsMoon",
+        "component_name": ""
+    },
+    {
+        "position_vb": "5b276e9a",
+        "old_draw_vb": "23ffa0d4",
+        "new_draw_vb": "aa1a8ff3",
+        "path": "./WeaponData/Bows/4Star/Predator/hash.json",
+        "folder": "./WeaponData/Bows/4Star/Predator",
+        "component_name": ""
+    },
+    {
+        "position_vb": "7130fdfa",
+        "old_draw_vb": "85f9b4d4",
+        "new_draw_vb": "0c1c9bf3",
+        "path": "./WeaponData/Bows/4Star/PrototypeAmber/hash.json",
+        "folder": "./WeaponData/Bows/4Star/PrototypeAmber",
+        "component_name": ""
+    },
+    {
+        "position_vb": "ecef2c57",
+        "old_draw_vb": "47feb048",
+        "new_draw_vb": "ce1b9f6f",
+        "path": "./WeaponData/Bows/4Star/RoyalBow/hash.json",
+        "folder": "./WeaponData/Bows/4Star/RoyalBow",
+        "component_name": ""
+    },
+    {
+        "position_vb": "bb654432",
+        "old_draw_vb": "14b96eda",
+        "new_draw_vb": "9d5c41fd",
+        "path": "./WeaponData/Bows/4Star/Rust/hash.json",
+        "folder": "./WeaponData/Bows/4Star/Rust",
+        "component_name": ""
+    },
+    {
+        "position_vb": "ecef2c57",
+        "old_draw_vb": "47feb048",
+        "new_draw_vb": "ce1b9f6f",
+        "path": "./WeaponData/Bows/4Star/SacrificialBow/hash.json",
+        "folder": "./WeaponData/Bows/4Star/SacrificialBow",
+        "component_name": ""
+    },
+    {
+        "position_vb": "0d589934",
+        "old_draw_vb": "68722260",
+        "new_draw_vb": "e1970d47",
+        "path": "./WeaponData/Bows/4Star/TheStringless/hash.json",
+        "folder": "./WeaponData/Bows/4Star/TheStringless",
+        "component_name": ""
+    },
+    {
+        "position_vb": "9f7a2f44",
+        "old_draw_vb": "3d4c75b4",
+        "new_draw_vb": "b4a95a93",
+        "path": "./WeaponData/Bows/4Star/TheViridescentHunt/hash.json",
+        "folder": "./WeaponData/Bows/4Star/TheViridescentHunt",
+        "component_name": ""
+    },
+    {
+        "position_vb": "8aff2a81",
+        "old_draw_vb": "a6ac42c7",
+        "new_draw_vb": "2f496de0",
+        "path": "./WeaponData/Bows/4Star/WindblumeOde/hash.json",
+        "folder": "./WeaponData/Bows/4Star/WindblumeOde",
+        "component_name": ""
+    },
+    {
+        "position_vb": "8bf32329",
+        "old_draw_vb": "b8cdf6dc",
+        "new_draw_vb": "3128d9fb",
+        "path": "./WeaponData/Bows/5Star/AmosBow/hash.json",
+        "folder": "./WeaponData/Bows/5Star/AmosBow",
+        "component_name": ""
+    },
+    {
+        "position_vb": "7fc55510",
+        "old_draw_vb": "2b378d03",
+        "new_draw_vb": "a2d2a224",
+        "path": "./WeaponData/Bows/5Star/AquaSimulacra/hash.json",
+        "folder": "./WeaponData/Bows/5Star/AquaSimulacra",
+        "component_name": ""
+    },
+    {
+        "position_vb": "f451d14b",
+        "old_draw_vb": "237ed8c3",
+        "new_draw_vb": "aa9bf7e4",
+        "path": "./WeaponData/Bows/5Star/ElegyForTheEnd/hash.json",
+        "folder": "./WeaponData/Bows/5Star/ElegyForTheEnd",
+        "component_name": ""
+    },
+    {
+        "position_vb": "152282fa",
+        "old_draw_vb": "13c9cd24",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Bows/5Star/HuntersPath/hash.json",
+        "folder": "./WeaponData/Bows/5Star/HuntersPath",
+        "component_name": ""
+    },
+    {
+        "position_vb": "791adc59",
+        "old_draw_vb": "53166598",
+        "new_draw_vb": "daf34abf",
+        "path": "./WeaponData/Bows/5Star/PolarStar/hash.json",
+        "folder": "./WeaponData/Bows/5Star/PolarStar",
+        "component_name": ""
+    },
+    {
+        "position_vb": "2006ab8b",
+        "old_draw_vb": "2256affe",
+        "new_draw_vb": "abb380d9",
+        "path": "./WeaponData/Bows/5Star/SkywardHarp/hash.json",
+        "folder": "./WeaponData/Bows/5Star/SkywardHarp",
+        "component_name": ""
+    },
+    {
+        "position_vb": "c0afaa8d",
+        "old_draw_vb": "ac5cbd73",
+        "new_draw_vb": "25b99254",
+        "path": "./WeaponData/Bows/5Star/ThunderingPulse/hash.json",
+        "folder": "./WeaponData/Bows/5Star/ThunderingPulse",
+        "component_name": ""
+    },
+    {
+        "position_vb": "905bd979",
+        "old_draw_vb": "40cc5918",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Catalysts/3Star/AmberBead/hash.json",
+        "folder": "./WeaponData/Catalysts/3Star/AmberBead",
+        "component_name": ""
+    },
+    {
+        "position_vb": "905bd979",
+        "old_draw_vb": "40cc5918",
+        "new_draw_vb": "c929763f",
+        "path": "./WeaponData/Catalysts/3Star/EmeraldOrb/hash.json",
+        "folder": "./WeaponData/Catalysts/3Star/EmeraldOrb",
+        "component_name": ""
+    },
+    {
+        "position_vb": "2275608c",
+        "old_draw_vb": "e9bccdf0",
+        "new_draw_vb": "6059e2d7",
+        "path": "./WeaponData/Catalysts/3Star/MagicGuide/hash.json",
+        "folder": "./WeaponData/Catalysts/3Star/MagicGuide",
+        "component_name": ""
+    },
+    {
+        "position_vb": "2275608c",
+        "old_draw_vb": "e9bccdf0",
+        "new_draw_vb": "6059e2d7",
+        "path": "./WeaponData/Catalysts/3Star/OtherworldlyStory/hash.json",
+        "folder": "./WeaponData/Catalysts/3Star/OtherworldlyStory",
+        "component_name": ""
+    },
+    {
+        "position_vb": "2275608c",
+        "old_draw_vb": "e9bccdf0",
+        "new_draw_vb": "6059e2d7",
+        "path": "./WeaponData/Catalysts/3Star/ThrillingTalesOfDragonSlayer/hash.json",
+        "folder": "./WeaponData/Catalysts/3Star/ThrillingTalesOfDragonSlayer",
+        "component_name": ""
+    },
+    {
+        "position_vb": "a15deee9",
+        "old_draw_vb": "7aaaeece",
+        "new_draw_vb": "f34fc1e9",
+        "path": "./WeaponData/Catalysts/3Star/TwinNephrite/hash.json",
+        "folder": "./WeaponData/Catalysts/3Star/TwinNephrite",
+        "component_name": ""
+    },
+    {
+        "position_vb": "7130fdfa",
+        "old_draw_vb": "85f9b4d4",
+        "new_draw_vb": "0c1c9bf3",
+        "path": "./WeaponData/Catalysts/4Star/BlackcliffAgate/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/BlackcliffAgate",
+        "component_name": ""
+    },
+    {
+        "position_vb": "64b80260",
+        "old_draw_vb": "132ba218",
+        "new_draw_vb": "9ace8d3f",
+        "path": "./WeaponData/Catalysts/4Star/DodocoTales/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/DodocoTales",
+        "component_name": ""
+    },
+    {
+        "position_vb": "0447a00e",
+        "old_draw_vb": "de3cdc0c",
+        "new_draw_vb": "57d9f32b",
+        "path": "./WeaponData/Catalysts/4Star/EyeOfPerception/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/EyeOfPerception",
+        "component_name": ""
+    },
+    {
+        "position_vb": "1578acf2",
+        "old_draw_vb": "7784a0cb",
+        "new_draw_vb": "fe618fec",
+        "path": "./WeaponData/Catalysts/4Star/FavoniusCodex/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/FavoniusCodex",
+        "component_name": ""
+    },
+    {
+        "position_vb": "166849f8",
+        "old_draw_vb": "936908a5",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Catalysts/4Star/Frostbearer/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/Frostbearer",
+        "component_name": ""
+    },
+    {
+        "position_vb": "280cc901",
+        "old_draw_vb": "9894ca2b",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Catalysts/4Star/FuitOfFultilment/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/FuitOfFultilment",
+        "component_name": ""
+    },
+    {
+        "position_vb": "4ec23e4a",
+        "old_draw_vb": "c3dde69c",
+        "new_draw_vb": "4a38c9bb",
+        "path": "./WeaponData/Catalysts/4Star/HakushinRing/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/HakushinRing",
+        "component_name": ""
+    },
+    {
+        "position_vb": "64b80260",
+        "old_draw_vb": "132ba218",
+        "new_draw_vb": "9ace8d3f",
+        "path": "./WeaponData/Catalysts/4Star/MappaMare/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/MappaMare",
+        "component_name": ""
+    },
+    {
+        "position_vb": "392fd268",
+        "old_draw_vb": "3aa3744d",
+        "new_draw_vb": "f4dd0d2b",
+        "path": "./WeaponData/Catalysts/4Star/OathswornEye/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/OathswornEye",
+        "component_name": ""
+    },
+    {
+        "position_vb": "7130fdfa",
+        "old_draw_vb": "85f9b4d4",
+        "new_draw_vb": "0c1c9bf3",
+        "path": "./WeaponData/Catalysts/4Star/PrototypeAmber/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/PrototypeAmber",
+        "component_name": ""
+    },
+    {
+        "position_vb": "f3da8c9e",
+        "old_draw_vb": "02f77561",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Catalysts/4Star/RoyalGrimoire/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/RoyalGrimoire",
+        "component_name": ""
+    },
+    {
+        "position_vb": "f3da8c9e",
+        "old_draw_vb": "02f77561",
+        "new_draw_vb": "8b125a46",
+        "path": "./WeaponData/Catalysts/4Star/SacrificialFragments/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/SacrificialFragments",
+        "component_name": ""
+    },
+    {
+        "position_vb": "373580ad",
+        "old_draw_vb": "297e102c",
+        "new_draw_vb": "5d1cef93",
+        "path": "./WeaponData/Catalysts/4Star/SolarPearl/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/SolarPearl",
+        "component_name": "Ring"
+    },
+    {
+        "position_vb": "03f91f7d",
+        "old_draw_vb": "368b9922",
+        "new_draw_vb": "911ff708",
+        "path": "./WeaponData/Catalysts/4Star/WanderingEvenstar/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/WanderingEvenstar",
+        "component_name": ""
+    },
+    {
+        "position_vb": "8dc249b6",
+        "old_draw_vb": "0473f704",
+        "new_draw_vb": "8d96d823",
+        "path": "./WeaponData/Catalysts/4Star/Widsith/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/Widsith",
+        "component_name": ""
+    },
+    {
+        "position_vb": "1578acf2",
+        "old_draw_vb": "7784a0cb",
+        "new_draw_vb": "fe618fec",
+        "path": "./WeaponData/Catalysts/4Star/WineAndSong/hash.json",
+        "folder": "./WeaponData/Catalysts/4Star/WineAndSong",
+        "component_name": ""
+    },
+    {
+        "position_vb": "1ec239cd",
+        "old_draw_vb": "6b9a6156",
+        "new_draw_vb": "e27f4e71",
+        "path": "./WeaponData/Catalysts/5Star/aThousandFloatingDreams/hash.json",
+        "folder": "./WeaponData/Catalysts/5Star/aThousandFloatingDreams",
+        "component_name": ""
+    },
+    {
+        "position_vb": "03a34660",
+        "old_draw_vb": "3fc5d187",
+        "new_draw_vb": "b620fea0",
+        "path": "./WeaponData/Catalysts/5Star/EverlastingMoonglow/hash.json",
+        "folder": "./WeaponData/Catalysts/5Star/EverlastingMoonglow",
+        "component_name": ""
+    },
+    {
+        "position_vb": "d45c086d",
+        "old_draw_vb": "d45c086d",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Catalysts/5Star/JadefallsSplendor/hash.json",
+        "folder": "./WeaponData/Catalysts/5Star/JadefallsSplendor",
+        "component_name": ""
+    },
+    {
+        "position_vb": "c33f468a",
+        "old_draw_vb": "072cd528",
+        "new_draw_vb": "b620fea0",
+        "path": "./WeaponData/Catalysts/5Star/KagurasVerity/hash.json",
+        "folder": "./WeaponData/Catalysts/5Star/KagurasVerity",
+        "component_name": ""
+    },
+    {
+        "position_vb": "a1c0ac1a",
+        "old_draw_vb": "ec6497b8",
+        "new_draw_vb": "6581b89f",
+        "path": "./WeaponData/Catalysts/5Star/LostPrayer/hash.json",
+        "folder": "./WeaponData/Catalysts/5Star/LostPrayer",
+        "component_name": ""
+    },
+    {
+        "position_vb": "23e8426e",
+        "old_draw_vb": "339820e0",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Catalysts/5Star/MemoryOfDust/hash.json",
+        "folder": "./WeaponData/Catalysts/5Star/MemoryOfDust",
+        "component_name": ""
+    },
+    {
+        "position_vb": "5d14263f",
+        "old_draw_vb": "29af7af2",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Catalysts/5Star/SkywardAtlas/hash.json",
+        "folder": "./WeaponData/Catalysts/5Star/SkywardAtlas",
+        "component_name": ""
+    },
+    {
+        "position_vb": "c9a25c6f",
+        "old_draw_vb": "ae8ddaba",
+        "new_draw_vb": "2768f59d",
+        "path": "./WeaponData/Catalysts/5Star/Tullaytullah'sRemembrance/hash.json",
+        "folder": "./WeaponData/Catalysts/5Star/Tullaytullah'sRemembrance",
+        "component_name": ""
+    },
+    {
+        "position_vb": "1d87d02e",
+        "old_draw_vb": "f0f0f4a4",
+        "new_draw_vb": "7915db83",
+        "path": "./WeaponData/Claymores/4Star/BlackcliffSlasher/hash.json",
+        "folder": "./WeaponData/Claymores/4Star/BlackcliffSlasher",
+        "component_name": ""
+    },
+    {
+        "position_vb": "099a58eb",
+        "old_draw_vb": "24a68f9c",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Claymores/4Star/Katsuragikiri/hash.json",
+        "folder": "./WeaponData/Claymores/4Star/Katsuragikiri",
+        "component_name": ""
+    },
+    {
+        "position_vb": "1d87d02e",
+        "old_draw_vb": "f0f0f4a4",
+        "new_draw_vb": "7915db83",
+        "path": "./WeaponData/Claymores/4Star/PrototypeArchaic/hash.json",
+        "folder": "./WeaponData/Claymores/4Star/PrototypeArchaic",
+        "component_name": ""
+    },
+    {
+        "position_vb": "c3c9ccbc",
+        "old_draw_vb": "9c289a2d",
+        "new_draw_vb": "15cdb50a",
+        "path": "./WeaponData/Enemies/HilicurlRangerHydroScythe/hash.json",
+        "folder": "./WeaponData/Enemies/HilicurlRangerHydroScythe",
+        "component_name": ""
+    },
+    {
+        "position_vb": "ddb5e853",
+        "old_draw_vb": "ddb5e853",
+        "new_draw_vb": "f92902c2",
+        "path": "./WeaponData/Enemies/KairagiFierySword/hash.json",
+        "folder": "./WeaponData/Enemies/KairagiFierySword",
+        "component_name": ""
+    },
+    {
+        "position_vb": "7c3a09f3",
+        "old_draw_vb": "7c3a09f3",
+        "new_draw_vb": "12221810",
+        "path": "./WeaponData/Enemies/KairagiThunderSword/hash.json",
+        "folder": "./WeaponData/Enemies/KairagiThunderSword",
+        "component_name": ""
+    },
+    {
+        "position_vb": "8f941cb5",
+        "old_draw_vb": "98b74969",
+        "new_draw_vb": "78f25ccd",
+        "path": "./WeaponData/Enemies/LineBreaker/hash.json",
+        "folder": "./WeaponData/Enemies/LineBreaker",
+        "component_name": ""
+    },
+    {
+        "position_vb": "85b5f67d",
+        "old_draw_vb": "8673d264",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Enemies/MitaAxe/hash.json",
+        "folder": "./WeaponData/Enemies/MitaAxe",
+        "component_name": ""
+    },
+    {
+        "position_vb": "a471337a",
+        "old_draw_vb": "de8daa01",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Enemies/RagingTideHarbingers/hash.json",
+        "folder": "./WeaponData/Enemies/RagingTideHarbingers",
+        "component_name": ""
+    },
+    {
+        "position_vb": "2cf38039",
+        "old_draw_vb": "da4eed2c",
+        "new_draw_vb": "fd5a432d",
+        "path": "./WeaponData/Enemies/StandardBearer/hash.json",
+        "folder": "./WeaponData/Enemies/StandardBearer",
+        "component_name": ""
+    },
+    {
+        "position_vb": "6767ab1d",
+        "old_draw_vb": "29ea51e2",
+        "new_draw_vb": "bf638a7d",
+        "path": "./WeaponData/Enemies/Windcutter/hash.json",
+        "folder": "./WeaponData/Enemies/Windcutter",
+        "component_name": ""
+    },
+    {
+        "position_vb": "3c37e40c",
+        "old_draw_vb": "f4a61aad",
+        "new_draw_vb": "7d43358a",
+        "path": "./WeaponData/Polearms/4Star/PrototypeStarglitter/hash.json",
+        "folder": "./WeaponData/Polearms/4Star/PrototypeStarglitter",
+        "component_name": ""
+    },
+    {
+        "position_vb": "1fa29595",
+        "old_draw_vb": "e30ca5e9",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Polearms/NonPlayer/MoraxVortex/hash.json",
+        "folder": "./WeaponData/Polearms/NonPlayer/MoraxVortex",
+        "component_name": ""
+    },
+    {
+        "position_vb": "5e0231af",
+        "old_draw_vb": "f35127aa",
+        "new_draw_vb": "7ab4088d",
+        "path": "./WeaponData/Swords/4Star/AmenomaKageuchi/hash.json",
+        "folder": "./WeaponData/Swords/4Star/AmenomaKageuchi",
+        "component_name": ""
+    },
+    {
+        "position_vb": "18802bf2",
+        "old_draw_vb": "bffaf2c7",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Swords/4Star/BlackcliffLongsword/hash.json",
+        "folder": "./WeaponData/Swords/4Star/BlackcliffLongsword",
+        "component_name": ""
+    },
+    {
+        "position_vb": "18802bf2",
+        "old_draw_vb": "bffaf2c7",
+        "new_draw_vb": "361fdde0",
+        "path": "./WeaponData/Swords/4Star/PrototypeRancour/hash.json",
+        "folder": "./WeaponData/Swords/4Star/PrototypeRancour",
+        "component_name": ""
+    },
+    {
+        "position_vb": "a07c44cc",
+        "old_draw_vb": "6c96b19c",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Swords/5Star/HaranGeppaku/hash.json",
+        "folder": "./WeaponData/Swords/5Star/HaranGeppaku",
+        "component_name": ""
+    },
+    {
+        "position_vb": "ad72f59c",
+        "old_draw_vb": "c51d9d82",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Swords/NonPlayer/AetherSword/hash.json",
+        "folder": "./WeaponData/Swords/NonPlayer/AetherSword",
+        "component_name": ""
+    },
+    {
+        "position_vb": "2d278663",
+        "old_draw_vb": "81eb3ae6",
+        "new_draw_vb": "",
+        "path": "./WeaponData/Swords/NonPlayer/LumineSword/hash.json",
+        "folder": "./WeaponData/Swords/NonPlayer/LumineSword",
+        "component_name": ""
+    },
+    {
+        "position_vb": "",
+        "old_draw_vb": "c605bcd4",
+        "new_draw_vb": "4fe093f3",
+        "path": "",
+        "folder": "",
+        "component_name": ""
+    },
+    {
+        "position_vb": "",
+        "old_draw_vb": "58f0252f",
+        "new_draw_vb": "d1150a08",
+        "path": "",
+        "folder": "",
+        "component_name": ""
+    },
+    {
+        "position_vb": "",
+        "old_draw_vb": "02bcc081",
+        "new_draw_vb": "8b59efa6",
+        "path": "",
+        "folder": "",
+        "component_name": ""
+    },
+    {
+        "position_vb": "",
+        "old_draw_vb": "f4abd771",
+        "new_draw_vb": "7d4ef856",
+        "path": "",
+        "folder": "",
+        "component_name": ""
+    },
+    {
+        "position_vb": "",
+        "old_draw_vb": "5b28685e",
+        "new_draw_vb": "d2cd4779",
+        "path": "",
+        "folder": "",
+        "component_name": ""
+    },
+    {
+        "position_vb": "",
+        "old_draw_vb": "9810aed3",
+        "new_draw_vb": "",
+        "path": "",
+        "folder": "",
+        "component_name": ""
+    },
+    {
+        "position_vb": "",
+        "old_draw_vb": "ee618640",
+        "new_draw_vb": "6784a967",
+        "path": "",
+        "folder": "",
+        "component_name": ""
+    },
+    {
+        "position_vb": "",
+        "old_draw_vb": "0d77d598",
+        "new_draw_vb": "8492fabf",
+        "path": "",
+        "folder": "",
+        "component_name": ""
+    },
+    {
+        "position_vb": "",
+        "old_draw_vb": "ec14ca18",
+        "new_draw_vb": "65f1e53f",
+        "path": "",
+        "folder": "",
+        "component_name": ""
+    },
+    {
+        "position_vb": "",
+        "old_draw_vb": "e19b42c7",
+        "new_draw_vb": "687e6de0",
+        "path": "",
+        "folder": "",
+        "component_name": ""
+    },
+    {
+        "position_vb": "",
+        "old_draw_vb": "9c51f5f6",
+        "new_draw_vb": "15b4dad1",
+        "path": "",
+        "folder": "",
+        "component_name": ""
+    },
+    {
+        "position_vb": "",
+        "old_draw_vb": "83589493",
+        "new_draw_vb": "0abdbbb4",
+        "path": "",
+        "folder": "",
+        "component_name": ""
+    },
+    {
+        "position_vb": "",
+        "old_draw_vb": "6926d7cd",
+        "new_draw_vb": "e0c3f8ea",
+        "path": "",
+        "folder": "",
+        "component_name": ""
+    },
+    {
+        "position_vb": "",
+        "old_draw_vb": "c2702a80",
+        "new_draw_vb": "4b9505a7",
+        "path": "",
+        "folder": "",
+        "component_name": ""
+    },
+    {
+        "position_vb": "b56fd424",
+        "old_draw_vb": "e96f4fc3",
+        "new_draw_vb": "608a60e4",
+        "path": "./PlayerCharacterData/Kaveh/hash.json",
+        "folder": "./PlayerCharacterData/Kaveh",
+        "component_name": ""
+    },
+    {
+        "position_vb": "5caaa94b",
+        "old_draw_vb": "224f2d0f",
+        "new_draw_vb": "abaa0228",
+        "path": "./SkillData/LyneyHat/hash.json",
+        "folder": "./SkillData/LyneyHat",
+        "component_name": ""
+    },
+    {
+        "position_vb": "6f7b7740",
+        "old_draw_vb": "f37168c3",
+        "new_draw_vb": "7a9447e4",
+        "path": "./PlayerCharacterData/Lyney/hash.json",
+        "folder": "./PlayerCharacterData/Lyney",
+        "component_name": ""
+    },
+    {
+        "position_vb": "0f5fedb4",
+        "old_draw_vb": "6234ae22",
+        "new_draw_vb": "ebd18105",
+        "path": "./PlayerCharacterData/KleeBlossomingStarlight/hash.json",
+        "folder": "./PlayerCharacterData/KleeBlossomingStarlight",
+        "component_name": ""
+    },
+    {
+        "position_vb": "d50d0b45",
+        "old_draw_vb": "26ad581d",
+        "new_draw_vb": "af48773a",
+        "path": "./SkillData/CatBox/hash.json",
+        "folder": "./SkillData/CatBox",
+        "component_name": ""
+    }
+]

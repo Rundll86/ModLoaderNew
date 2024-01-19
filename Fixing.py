@@ -99,7 +99,8 @@ def processfolder(folder_path):
                 f.write(data)
                 f.truncate()
         except Exception as e:
-            print("无法打开，已跳过。")
+            print("无法打开文件，已跳过。")
+            print("请询问模组开发者获得正确的模组文件！")
             print(f"错误：{e}")
 
 

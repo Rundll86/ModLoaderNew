@@ -1,10 +1,14 @@
-import os, json
+import os, json, ctypes, win32api, sys
 
 
 def clearConsole():
     os.system("title ModLoaderNew")
     os.system("cls")
 
+
+if not ctypes.windll.shell32.IsUserAnAdmin():
+    win32api.ShellExecute(None, "runas", sys.executable, __file__, None, 1)
+    sys.exit()
 
 clearConsole()
 infos = json.load(open("dontDeleteMe/assets/info.json", encoding="utf8"))
@@ -19,20 +23,7 @@ from zipfile import *
 from unrar import rarfile
 from io import BytesIO
 from PIL import Image
-import shutil, msvcrt, subprocess, threading, time, sys, tempfile, conkits, json, winreg, configparser, ctypes, tarfile, requests, py7zr
-
-
-def is_admin():
-    try:
-        return not not ctypes.windll.shell32.IsUserAnAdmin()
-    except:
-        return False
-
-
-if not is_admin():
-    print("此程序需要管理员权限，请以管理员身份重启此程序。")
-    msvcrt.getch()
-    sys.exit()
+import shutil, msvcrt, subprocess, threading, time, tempfile, conkits, json, winreg, configparser, tarfile, requests, py7zr, winshell
 
 
 def RunAsPowerShell(Cmd):
@@ -123,8 +114,8 @@ def autoInstall():
     modlist = os.listdir("autoInstall")
     if len(modlist) > 0:
         print("")
-        global stime, waittime, finish,needdelete
-        needdelete=[]
+        global stime, waittime, finish, needdelete
+        needdelete = []
         stime = time.time()
         for i in range(len(modlist)):
             modlist[i] = os.path.join("autoInstall", modlist[i])

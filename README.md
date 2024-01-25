@@ -1,4 +1,4 @@
-那么，截止到v1.4.6，目前ModLoaderNew的功能有：  
+截止到v1.4.7，目前ModLoaderNew的功能有：  
 - 自动查找游戏路径
 - 自动安装模组
 - 隐藏按下F1时出现的菜单（便于深渊开书吃球）
@@ -9,6 +9,7 @@
 - 对游戏隐藏d3d11.dll（包括3DMigoto Loader的窗口），用于降低封号查到的概率
 - 从GameBanana获取模组，可选择性下载
 - 模组管理器
+- 自动创建桌面快捷方式
 - Whatever will be, will be...
 
 Todo-list：  

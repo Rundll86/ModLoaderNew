@@ -1,5 +1,8 @@
 import os, json, ctypes, win32api, sys
 
+if getattr(sys, "frozen", False):
+    os.chdir(os.path.dirname(sys.executable))
+
 
 def clearConsole():
     os.system("title ModLoaderNew")
@@ -9,7 +12,6 @@ def clearConsole():
 if not ctypes.windll.shell32.IsUserAnAdmin():
     win32api.ShellExecute(None, "runas", sys.executable, __file__, None, 1)
     sys.exit()
-
 clearConsole()
 infos = json.load(open("dontDeleteMe/assets/info.json", encoding="utf8"))
 print(f"ModLoaderNew v{infos['version']}")
@@ -229,6 +231,12 @@ def launchSetting():
         json.dump(settings, open("setting.json", "w", encoding="utf8"))
         launchSetting()
 
+    def switchCheck():
+        print("")
+        settings["check_quickstart"] = getASwitch()
+        json.dump(settings, open("setting.json", "w", encoding="utf8"))
+        launchSetting()
+
     clearConsole()
     print("< ModLoaderNew-设置 >")
     setting = conkits.Choice(
@@ -237,8 +245,9 @@ def launchSetting():
             "* 拉起游戏时按键确认       <开关> *",
             "* 拉起模组加载器时按键确认 <开关> *",
             "* 是否启用调试模式         <开关> *",
+            "* 启动时是否检查快捷方式   <开关> *",
         ],
-        methods=[quitSetting, gameConfirm, modConfirm, switchDebug],
+        methods=[quitSetting, gameConfirm, modConfirm, switchDebug, switchCheck],
     )
     setting.set_keys({"up": "H", "down": "P", "confirm": "\r"})
     setting.checked_ansi_code = conkits.Colors256.BACK255 + conkits.Colors256.FORE0
@@ -704,12 +713,17 @@ def printImage(img: Image.Image, width):
 
 
 print("正在加载配置文件...")
+desktoppath = os.path.join(winshell.desktop(), "ModLoaderNew.lnk")
 if not os.path.exists("game.txt"):
-    print("检测到配置文件不存在，正在生成...")
     generateConfig(True)
 if not os.path.exists("setting.json"):
     json.dump(
-        {"confirm_game": False, "confirm_modloader": False, "debug_mode": False},
+        {
+            "confirm_game": False,
+            "confirm_modloader": False,
+            "debug_mode": False,
+            "check_quickstart": True,
+        },
         open("setting.json", "w", encoding="utf8"),
     )
 config = open("game.txt", "r", encoding="utf8").read()
@@ -723,6 +737,15 @@ dsfpath = os.path.join(temppath, "3dmigoto\\ShaderFixes")
 cg = open(tconfigpath, encoding="utf8")
 data = cg.read().format(GamePath=config)
 cd = os.path.abspath(os.curdir)
+if settings["check_quickstart"] and not os.path.exists(desktoppath):
+    try:
+        winshell.CreateShortcut(
+            Path=desktoppath,
+            Target=os.path.join(os.getcwd(), "ModLoader.exe"),
+            Description="ModLoaderNew",
+        )
+    except:
+        pass
 print("正在加载核心脚本...")
 ZipFile("dontDeleteMe/assets/core.ddm").extractall(temppath)
 open(dconfigpath, "w", encoding="utf8").write(data)
@@ -730,7 +753,7 @@ autoInstall()
 loadmod()
 fixmod()
 loadsf()
-print("准备拉起模组加载器...", end="")
+print("模组注入器已准备就绪！", end="")
 if not settings["debug_mode"]:
     if settings["confirm_modloader"]:
         print("请按下任意键继续。")
@@ -751,7 +774,7 @@ if not settings["debug_mode"]:
     os.chdir(cd)
 else:
     print("处于调试模式，操作取消。")
-print("准备拉起你的游戏...", end="")
+print("正在启动你的游戏...", end="")
 if not settings["debug_mode"]:
     if settings["confirm_game"]:
         print("请按下任意键继续。")
@@ -787,7 +810,7 @@ console = conkits.Choice(
         "* 修改游戏路径     *",
     ],
     methods=[
-        lambda: (print("正在清理数据..."), sys.exit()),
+        sys.exit,
         killGame,
         resetConfig,
         launchSetting,

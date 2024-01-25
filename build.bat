@@ -5,7 +5,7 @@ Pyinstaller --add-data "fixing_4-1.json;." --add-data "fixing_4-3.json;." -F Fix
 del /s /q dontDeleteMe\assets\Fixing.exe
 copy dist\Fixing.exe dontDeleteMe\assets
 del /s /q dist\Fixing.exe
-Pyinstaller -F ModLoader.py
+Pyinstaller -F ModLoader.py -i favicon.ico
 del /s /q ModLoader.spec
 del /s /q Fixing.spec
 rmdir /s /q build

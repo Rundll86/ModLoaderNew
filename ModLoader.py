@@ -25,6 +25,7 @@ from zipfile import *
 from unrar import rarfile
 from io import BytesIO
 from PIL import Image
+from urllib import parse, request
 import shutil, msvcrt, subprocess, threading, time, tempfile, conkits, json, winreg, configparser, tarfile, requests, py7zr, winshell
 
 
@@ -291,7 +292,9 @@ def findGame_methodA():
                 parser["launcher"]["game_install_path"],
                 parser["launcher"]["game_start_name"],
             )
-            print(f"已找到「{parser['launcher']['game_start_name']}」，其在 [ {gamepath} ] 。")
+            print(
+                f"已找到「{parser['launcher']['game_start_name']}」，其在 [ {gamepath} ] 。"
+            )
             print("这是你的游戏吗？")
             print("\x1b[33m↓ 使用箭头键切换，回车键确认 ↓\x1b[0m")
             selector = conkits.Choice(options=["* 是   *", "* 不是 *"])
@@ -363,7 +366,9 @@ def generateConfig(exit=True):
         config.write(gamepath)
         config.close()
     else:
-        print("没有在你的电脑中找到YuanShen.exe或GenshinImpact.exe，请确认你的电脑中已经安装了《原神》！")
+        print(
+            "没有在你的电脑中找到YuanShen.exe或GenshinImpact.exe，请确认你的电脑中已经安装了《原神》！"
+        )
         print(f"按下任意键{'退出' if exit else '继续'}。")
         msvcrt.getch()
         if exit:
@@ -546,9 +551,10 @@ def downloadMod(page=1, search="", searching=False, listing=False):
             index = selector.run()
             print("正在开始下载...")
         print("如果文件太大，下载将会耗费很长时间，请耐心等待。")
-        open("autoInstall/" + files[index]["_sFile"], "wb").write(
+        """open("autoInstall/" + files[index]["_sFile"], "wb").write(
             requests.get(files[index]["_sDownloadUrl"]).content
-        )
+        )"""
+        download(files[index]["_sDownloadUrl"], files[index]["_sFile"])
         print("下载完成！使用自动安装模组功能即可！")
         print("按下任意键返回操作面板...")
         msvcrt.getch()
@@ -557,6 +563,33 @@ def downloadMod(page=1, search="", searching=False, listing=False):
         print("错误信息：" + str(Error))
         print("按下任意键返回操作面板...")
         msvcrt.getch()
+
+
+def download(url: str, frontstr=""):
+    global lastsize
+
+    def _download(count, block_size, total_size):
+        global lastsize
+        percent = count * block_size / total_size
+        newsize = os.path.getsize(filename)
+        print(
+            f"{frontstr} {progressbar(percent,10)} {round(percent*100,1)}% {newsize-lastsize}Kb/s",
+            end="\r",
+        )
+        lastsize = newsize
+
+    filename = extract_file_name(url)
+    lastsize = 0
+    request.urlretrieve(url, filename, reporthook=_download)
+    print("")
+
+
+def extract_file_name(url: str):
+    return os.path.basename(parse.urlsplit(url).path)
+
+
+def progressbar(percent, max):
+    return f"[{'='*round(percent*max)+'-'*(max-round(percent*max))}]"
 
 
 def striplist(target: list):
@@ -746,9 +779,10 @@ if settings["check_quickstart"] and not os.path.exists(desktoppath):
         )
     except:
         pass
-print("正在加载核心脚本...")
-ZipFile("dontDeleteMe/assets/core.ddm").extractall(temppath)
-open(dconfigpath, "w", encoding="utf8").write(data)
+if not settings["debug_mode"]:
+    print("正在加载核心脚本...")
+    ZipFile("dontDeleteMe/assets/core.ddm").extractall(temppath)
+    open(dconfigpath, "w", encoding="utf8").write(data)
 autoInstall()
 loadmod()
 fixmod()
@@ -786,7 +820,9 @@ if not settings["debug_mode"]:
         print("游戏已启动！游戏窗口稍后将会出现。\n按下任意键进入操作面板。")
         msvcrt.getch()
     except Exception as Error:
-        print("启动失败，可能是游戏文件不存在或已经损坏，请检查game.txt中的路径是否有效。")
+        print(
+            "启动失败，可能是游戏文件不存在或已经损坏，请检查game.txt中的路径是否有效。"
+        )
         print("按下任意键退出。")
         msvcrt.getch()
         sys.exit()
